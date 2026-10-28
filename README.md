@@ -53,7 +53,7 @@ and ~83% of c2's text is train-repo-specific knowledge (pint / responses) — ne
 | `tools/langfuse/` | backup of per-run tool-call counts pulled from Langfuse |
 | `bench-survey/` | notes on SWE-QA, SWE-QA-Pro, RepoQA, CodeRepoQA, Qodo deep_code_bench; sub-bench selection (`stats.py`, `repos.txt`, `subbench_splits.json`); judge script; `pro.jsonl` (SWE-QA-Pro, MIT) |
 | `report/` | report generator (`build.py`, `gepa_section.py`, `gepa_viz.py` + json data), final `improve-with-ola-v1.html`, browser test `pw/test.js` |
-| `docs/` | experiment log, research scaffold, C1–C3 task cards |
+| `docs/` | `HANDOFF_PROMPT.md` (paste into a new session), experiment log, research scaffold, C1–C3 task cards |
 
 Scripts keep the absolute paths of the original VM (`/home/ubuntu/improve-runs/...` → `experiments/` and `tools/`,
 `/home/ubuntu/Documents/report` → `report/`, `/home/ubuntu/bench-survey` → `bench-survey/`). Adjust before re-running.
