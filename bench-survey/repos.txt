@@ -1,0 +1,26 @@
+qiboteam/qibo 2f98679 {'What': 3, 'Where': 3, 'How': 3, 'Why': 1}
+sanic-org/sanic 57d44f2 {'What': 2, 'Why': 4, 'Where': 2, 'How': 2}
+sqlfluff/sqlfluff 0243d4a {'What': 2, 'How': 2, 'Why': 2, 'Where': 4}
+cekit/cekit 6b82c4a {'How': 4, 'Why': 2, 'Where': 2, 'What': 2}
+docker/docker-py b2a18d7 {'What': 1, 'Where': 4, 'Why': 5}
+dwavesystems/dwave-cloud-client 88e14e9 {'What': 1, 'How': 2, 'Where': 2, 'Why': 5}
+geopandas/geopandas 7d460d9 {'Why': 4, 'Where': 4, 'How': 2}
+PennyLaneAI/pennylane 6fae4e7 {'Where': 6, 'What': 3, 'How': 1}
+tox-dev/tox 984ce02 {'How': 5, 'Where': 2, 'What': 1, 'Why': 2}
+stfc/PSyclone 0a0cfa6 {'Why': 5, 'How': 2, 'What': 2, 'Where': 1}
+bridgecrewio/checkov c209148 {'What': 4, 'Why': 2, 'How': 2, 'Where': 2}
+omni-us/jsonargparse dd0f9e3 {'What': 4, 'How': 1, 'Where': 3, 'Why': 2}
+microsoft/pybryt 4506ddc {'Where': 4, 'How': 3, 'Why': 2, 'What': 1}
+mwaskom/seaborn 3d3d715 {'Why': 3, 'What': 1, 'Where': 6}
+yt-dlp/yt-dlp f2a4983 {'How': 4, 'Where': 4, 'Why': 1, 'What': 1}
+numba/numba 6bb2930 {'Why': 2, 'What': 4, 'How': 2, 'Where': 2}
+sphinx-doc/sphinx 47757c4 {'Why': 1, 'What': 5, 'How': 2, 'Where': 2}
+pydata/xarray 82fd832 {'How': 2, 'What': 2, 'Where': 2, 'Why': 4}
+python-pillow/Pillow c4325c8 {'Why': 4, 'Where': 3, 'How': 3}
+mkdocs/mkdocs 74d3191 {'How': 3, 'What': 2, 'Where': 1, 'Why': 4}
+getsentry/responses 3e02994 {'Where': 2, 'Why': 2, 'How': 6}
+frictionlessdata/frictionless-py 72e1391 {'How': 5, 'What': 3, 'Where': 2}
+hylang/hy 902233d {'What': 3, 'Where': 3, 'Why': 2, 'How': 2}
+ethereum/web3.py 305b3c3 {'How': 3, 'What': 2, 'Why': 2, 'Where': 3}
+hgrecco/pint 5bdf010 {'How': 4, 'Why': 2, 'Where': 3, 'What': 1}
+fitbenchmarking/fitbenchmarking df465dc {'Why': 2, 'How': 2, 'Where': 5, 'What': 1}

@@ -1,0 +1,5 @@
+[
+  {
+    "instruction": "You are a codebase Q&A assistant. Given the GitHub repository `openai/openai-agents-python` at commit `17d994bd3045dae71acda676a4ef4762ed8ecd94` and a question (found in the triggering event under `input.question`), use the GitHub tools to read the code at that commit and answer the question. Finish with a JSON object: `{\"answer\": ..., \"path\": ...}` where `path` is the repository-relative path of the file that contains the answer."
+  }
+]

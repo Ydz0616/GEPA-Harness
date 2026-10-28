@@ -1,0 +1,337 @@
+Iteration 0: Base program full valset score: 0.0 over 6 / 6 examples
+Iteration 1: Selected program 0 score: 0.0
+Batched reflection failed (Error code: 402 - {'error': {'message': 'Insufficient Balance (request_id: 94212700-1171-4120-aef6-d04ed76ba9c8)', 'type': 'unknown_error', 'param': None, 'code': 'invalid_request_error'}}); retrying per task.
+Traceback (most recent call last):
+  File "/home/ubuntu/repos/gepa/src/gepa/proposer/reflective_mutation/reflective_mutation.py", line 262, in _propose_texts_batch_safe
+    return list(self._propose_texts_batch(jobs, mds))
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/repos/gepa/src/gepa/proposer/reflective_mutation/reflective_mutation.py", line 227, in _propose_texts_batch
+    return [self.propose_new_texts(*jobs[0], metadata=mds[0])]
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/repos/gepa/src/gepa/proposer/reflective_mutation/reflective_mutation.py", line 191, in propose_new_texts
+    proposal, next_lm = self._reflection_lm.reflect(candidate, reflective_dataset, components_to_update)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/repos/gepa/src/gepa/proposer/reflective_mutation/reflection_lm.py", line 166, in reflect
+    return self.reflect_many([(candidate, reflective_dataset, components_to_update)])[0]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/repos/gepa/src/gepa/proposer/reflective_mutation/reflection_lm.py", line 182, in reflect_many
+    raw_outputs = self._batch_complete([r[2] for r in rendered], [r[3] for r in rendered])
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/repos/gepa/src/gepa/proposer/reflective_mutation/reflection_lm.py", line 153, in _batch_complete
+    return [self.lm(prompts[0])]
+            ^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/repos/gepa/src/gepa/lm.py", line 254, in __call__
+    result = self._fn(prompt)
+             ^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/repos/Hidden-Layer-Internal/src/hidden_layer/improve/reflection.py", line 39, in __call__
+    resp = client.chat.completions.create(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/repos/Hidden-Layer-Internal/.venv/lib/python3.12/site-packages/openai/_utils/_utils.py", line 298, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/repos/Hidden-Layer-Internal/.venv/lib/python3.12/site-packages/openai/resources/chat/completions/completions.py", line 1296, in create
+    return self._post(
+           ^^^^^^^^^^^
+  File "/home/ubuntu/repos/Hidden-Layer-Internal/.venv/lib/python3.12/site-packages/openai/_base_client.py", line 1375, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/repos/Hidden-Layer-Internal/.venv/lib/python3.12/site-packages/openai/_base_client.py", line 1148, in request
+    raise self._make_status_error_from_response(err.response) from None
+openai.APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient Balance (request_id: 94212700-1171-4120-aef6-d04ed76ba9c8)', 'type': 'unknown_error', 'param': None, 'code': 'invalid_request_error'}}
+
+Per-task reflection failed: Error code: 402 - {'error': {'message': 'Insufficient Balance (request_id: 3b4e3f68-81a0-4410-8354-4040f57f14f2)', 'type': 'unknown_error', 'param': None, 'code': 'invalid_request_error'}}
+Iteration 1: Reflective mutation did not propose a new candidate
+Iteration 2: Selected program 0 score: 0.0
+Batched reflection failed (Error code: 402 - {'error': {'message': 'Insufficient Balance (request_id: 371faa75-7029-458b-8845-7b1a735b0569)', 'type': 'unknown_error', 'param': None, 'code': 'invalid_request_error'}}); retrying per task.
+Traceback (most recent call last):
+  File "/home/ubuntu/repos/gepa/src/gepa/proposer/reflective_mutation/reflective_mutation.py", line 262, in _propose_texts_batch_safe
+    return list(self._propose_texts_batch(jobs, mds))
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/repos/gepa/src/gepa/proposer/reflective_mutation/reflective_mutation.py", line 227, in _propose_texts_batch
+    return [self.propose_new_texts(*jobs[0], metadata=mds[0])]
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/repos/gepa/src/gepa/proposer/reflective_mutation/reflective_mutation.py", line 191, in propose_new_texts
+    proposal, next_lm = self._reflection_lm.reflect(candidate, reflective_dataset, components_to_update)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/repos/gepa/src/gepa/proposer/reflective_mutation/reflection_lm.py", line 166, in reflect
+    return self.reflect_many([(candidate, reflective_dataset, components_to_update)])[0]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/repos/gepa/src/gepa/proposer/reflective_mutation/reflection_lm.py", line 182, in reflect_many
+    raw_outputs = self._batch_complete([r[2] for r in rendered], [r[3] for r in rendered])
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/repos/gepa/src/gepa/proposer/reflective_mutation/reflection_lm.py", line 153, in _batch_complete
+    return [self.lm(prompts[0])]
+            ^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/repos/gepa/src/gepa/lm.py", line 254, in __call__
+    result = self._fn(prompt)
+             ^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/repos/Hidden-Layer-Internal/src/hidden_layer/improve/reflection.py", line 39, in __call__
+    resp = client.chat.completions.create(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/repos/Hidden-Layer-Internal/.venv/lib/python3.12/site-packages/openai/_utils/_utils.py", line 298, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/repos/Hidden-Layer-Internal/.venv/lib/python3.12/site-packages/openai/resources/chat/completions/completions.py", line 1296, in create
+    return self._post(
+           ^^^^^^^^^^^
+  File "/home/ubuntu/repos/Hidden-Layer-Internal/.venv/lib/python3.12/site-packages/openai/_base_client.py", line 1375, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/repos/Hidden-Layer-Internal/.venv/lib/python3.12/site-packages/openai/_base_client.py", line 1148, in request
+    raise self._make_status_error_from_response(err.response) from None
+openai.APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient Balance (request_id: 371faa75-7029-458b-8845-7b1a735b0569)', 'type': 'unknown_error', 'param': None, 'code': 'invalid_request_error'}}
+
+Per-task reflection failed: Error code: 402 - {'error': {'message': 'Insufficient Balance (request_id: 00a1a4c0-3384-48fc-a244-15d45c60970d)', 'type': 'unknown_error', 'param': None, 'code': 'invalid_request_error'}}
+Iteration 2: Reflective mutation did not propose a new candidate
+Iteration 3: Selected program 0 score: 0.0
+Batched reflection failed (Error code: 402 - {'error': {'message': 'Insufficient Balance (request_id: 115400f0-212d-404b-81f9-f4630d44c549)', 'type': 'unknown_error', 'param': None, 'code': 'invalid_request_error'}}); retrying per task.
+Traceback (most recent call last):
+  File "/home/ubuntu/repos/gepa/src/gepa/proposer/reflective_mutation/reflective_mutation.py", line 262, in _propose_texts_batch_safe
+    return list(self._propose_texts_batch(jobs, mds))
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/repos/gepa/src/gepa/proposer/reflective_mutation/reflective_mutation.py", line 227, in _propose_texts_batch
+    return [self.propose_new_texts(*jobs[0], metadata=mds[0])]
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/repos/gepa/src/gepa/proposer/reflective_mutation/reflective_mutation.py", line 191, in propose_new_texts
+    proposal, next_lm = self._reflection_lm.reflect(candidate, reflective_dataset, components_to_update)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/repos/gepa/src/gepa/proposer/reflective_mutation/reflection_lm.py", line 166, in reflect
+    return self.reflect_many([(candidate, reflective_dataset, components_to_update)])[0]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/repos/gepa/src/gepa/proposer/reflective_mutation/reflection_lm.py", line 182, in reflect_many
+    raw_outputs = self._batch_complete([r[2] for r in rendered], [r[3] for r in rendered])
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/repos/gepa/src/gepa/proposer/reflective_mutation/reflection_lm.py", line 153, in _batch_complete
+    return [self.lm(prompts[0])]
+            ^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/repos/gepa/src/gepa/lm.py", line 254, in __call__
+    result = self._fn(prompt)
+             ^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/repos/Hidden-Layer-Internal/src/hidden_layer/improve/reflection.py", line 39, in __call__
+    resp = client.chat.completions.create(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/repos/Hidden-Layer-Internal/.venv/lib/python3.12/site-packages/openai/_utils/_utils.py", line 298, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/repos/Hidden-Layer-Internal/.venv/lib/python3.12/site-packages/openai/resources/chat/completions/completions.py", line 1296, in create
+    return self._post(
+           ^^^^^^^^^^^
+  File "/home/ubuntu/repos/Hidden-Layer-Internal/.venv/lib/python3.12/site-packages/openai/_base_client.py", line 1375, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/repos/Hidden-Layer-Internal/.venv/lib/python3.12/site-packages/openai/_base_client.py", line 1148, in request
+    raise self._make_status_error_from_response(err.response) from None
+openai.APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient Balance (request_id: 115400f0-212d-404b-81f9-f4630d44c549)', 'type': 'unknown_error', 'param': None, 'code': 'invalid_request_error'}}
+
+Per-task reflection failed: Error code: 402 - {'error': {'message': 'Insufficient Balance (request_id: 9550fb4c-9cd7-4adf-8024-e0c1f4a09cbe)', 'type': 'unknown_error', 'param': None, 'code': 'invalid_request_error'}}
+Iteration 3: Reflective mutation did not propose a new candidate
+Iteration 4: Selected program 0 score: 0.0
+Batched reflection failed (Error code: 402 - {'error': {'message': 'Insufficient Balance (request_id: 8c586624-dd59-4190-b412-4647328d0af4)', 'type': 'unknown_error', 'param': None, 'code': 'invalid_request_error'}}); retrying per task.
+Traceback (most recent call last):
+  File "/home/ubuntu/repos/gepa/src/gepa/proposer/reflective_mutation/reflective_mutation.py", line 262, in _propose_texts_batch_safe
+    return list(self._propose_texts_batch(jobs, mds))
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/repos/gepa/src/gepa/proposer/reflective_mutation/reflective_mutation.py", line 227, in _propose_texts_batch
+    return [self.propose_new_texts(*jobs[0], metadata=mds[0])]
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/repos/gepa/src/gepa/proposer/reflective_mutation/reflective_mutation.py", line 191, in propose_new_texts
+    proposal, next_lm = self._reflection_lm.reflect(candidate, reflective_dataset, components_to_update)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/repos/gepa/src/gepa/proposer/reflective_mutation/reflection_lm.py", line 166, in reflect
+    return self.reflect_many([(candidate, reflective_dataset, components_to_update)])[0]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/repos/gepa/src/gepa/proposer/reflective_mutation/reflection_lm.py", line 182, in reflect_many
+    raw_outputs = self._batch_complete([r[2] for r in rendered], [r[3] for r in rendered])
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/repos/gepa/src/gepa/proposer/reflective_mutation/reflection_lm.py", line 153, in _batch_complete
+    return [self.lm(prompts[0])]
+            ^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/repos/gepa/src/gepa/lm.py", line 254, in __call__
+    result = self._fn(prompt)
+             ^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/repos/Hidden-Layer-Internal/src/hidden_layer/improve/reflection.py", line 39, in __call__
+    resp = client.chat.completions.create(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/repos/Hidden-Layer-Internal/.venv/lib/python3.12/site-packages/openai/_utils/_utils.py", line 298, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/repos/Hidden-Layer-Internal/.venv/lib/python3.12/site-packages/openai/resources/chat/completions/completions.py", line 1296, in create
+    return self._post(
+           ^^^^^^^^^^^
+  File "/home/ubuntu/repos/Hidden-Layer-Internal/.venv/lib/python3.12/site-packages/openai/_base_client.py", line 1375, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/repos/Hidden-Layer-Internal/.venv/lib/python3.12/site-packages/openai/_base_client.py", line 1148, in request
+    raise self._make_status_error_from_response(err.response) from None
+openai.APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient Balance (request_id: 8c586624-dd59-4190-b412-4647328d0af4)', 'type': 'unknown_error', 'param': None, 'code': 'invalid_request_error'}}
+
+Per-task reflection failed: Error code: 402 - {'error': {'message': 'Insufficient Balance (request_id: 259a0549-83f8-4d12-ab86-2b5060cf4a83)', 'type': 'unknown_error', 'param': None, 'code': 'invalid_request_error'}}
+Iteration 4: Reflective mutation did not propose a new candidate
+Iteration 5: Selected program 0 score: 0.0
+Batched reflection failed (Error code: 402 - {'error': {'message': 'Insufficient Balance (request_id: 4df33b8f-a954-465c-8941-806446e4d9e9)', 'type': 'unknown_error', 'param': None, 'code': 'invalid_request_error'}}); retrying per task.
+Traceback (most recent call last):
+  File "/home/ubuntu/repos/gepa/src/gepa/proposer/reflective_mutation/reflective_mutation.py", line 262, in _propose_texts_batch_safe
+    return list(self._propose_texts_batch(jobs, mds))
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/repos/gepa/src/gepa/proposer/reflective_mutation/reflective_mutation.py", line 227, in _propose_texts_batch
+    return [self.propose_new_texts(*jobs[0], metadata=mds[0])]
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/repos/gepa/src/gepa/proposer/reflective_mutation/reflective_mutation.py", line 191, in propose_new_texts
+    proposal, next_lm = self._reflection_lm.reflect(candidate, reflective_dataset, components_to_update)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/repos/gepa/src/gepa/proposer/reflective_mutation/reflection_lm.py", line 166, in reflect
+    return self.reflect_many([(candidate, reflective_dataset, components_to_update)])[0]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/repos/gepa/src/gepa/proposer/reflective_mutation/reflection_lm.py", line 182, in reflect_many
+    raw_outputs = self._batch_complete([r[2] for r in rendered], [r[3] for r in rendered])
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/repos/gepa/src/gepa/proposer/reflective_mutation/reflection_lm.py", line 153, in _batch_complete
+    return [self.lm(prompts[0])]
+            ^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/repos/gepa/src/gepa/lm.py", line 254, in __call__
+    result = self._fn(prompt)
+             ^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/repos/Hidden-Layer-Internal/src/hidden_layer/improve/reflection.py", line 39, in __call__
+    resp = client.chat.completions.create(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/repos/Hidden-Layer-Internal/.venv/lib/python3.12/site-packages/openai/_utils/_utils.py", line 298, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/repos/Hidden-Layer-Internal/.venv/lib/python3.12/site-packages/openai/resources/chat/completions/completions.py", line 1296, in create
+    return self._post(
+           ^^^^^^^^^^^
+  File "/home/ubuntu/repos/Hidden-Layer-Internal/.venv/lib/python3.12/site-packages/openai/_base_client.py", line 1375, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/repos/Hidden-Layer-Internal/.venv/lib/python3.12/site-packages/openai/_base_client.py", line 1148, in request
+    raise self._make_status_error_from_response(err.response) from None
+openai.APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient Balance (request_id: 4df33b8f-a954-465c-8941-806446e4d9e9)', 'type': 'unknown_error', 'param': None, 'code': 'invalid_request_error'}}
+
+Per-task reflection failed: Error code: 402 - {'error': {'message': 'Insufficient Balance (request_id: eb810193-6beb-4b88-a4fc-8dab7fe6451f)', 'type': 'unknown_error', 'param': None, 'code': 'invalid_request_error'}}
+Iteration 5: Reflective mutation did not propose a new candidate
+Iteration 6: Selected program 0 score: 0.0
+Batched reflection failed (Error code: 402 - {'error': {'message': 'Insufficient Balance (request_id: 1154e3fc-da44-48dc-aaf8-61a875304fcc)', 'type': 'unknown_error', 'param': None, 'code': 'invalid_request_error'}}); retrying per task.
+Traceback (most recent call last):
+  File "/home/ubuntu/repos/gepa/src/gepa/proposer/reflective_mutation/reflective_mutation.py", line 262, in _propose_texts_batch_safe
+    return list(self._propose_texts_batch(jobs, mds))
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/repos/gepa/src/gepa/proposer/reflective_mutation/reflective_mutation.py", line 227, in _propose_texts_batch
+    return [self.propose_new_texts(*jobs[0], metadata=mds[0])]
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/repos/gepa/src/gepa/proposer/reflective_mutation/reflective_mutation.py", line 191, in propose_new_texts
+    proposal, next_lm = self._reflection_lm.reflect(candidate, reflective_dataset, components_to_update)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/repos/gepa/src/gepa/proposer/reflective_mutation/reflection_lm.py", line 166, in reflect
+    return self.reflect_many([(candidate, reflective_dataset, components_to_update)])[0]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/repos/gepa/src/gepa/proposer/reflective_mutation/reflection_lm.py", line 182, in reflect_many
+    raw_outputs = self._batch_complete([r[2] for r in rendered], [r[3] for r in rendered])
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/repos/gepa/src/gepa/proposer/reflective_mutation/reflection_lm.py", line 153, in _batch_complete
+    return [self.lm(prompts[0])]
+            ^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/repos/gepa/src/gepa/lm.py", line 254, in __call__
+    result = self._fn(prompt)
+             ^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/repos/Hidden-Layer-Internal/src/hidden_layer/improve/reflection.py", line 39, in __call__
+    resp = client.chat.completions.create(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/repos/Hidden-Layer-Internal/.venv/lib/python3.12/site-packages/openai/_utils/_utils.py", line 298, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/repos/Hidden-Layer-Internal/.venv/lib/python3.12/site-packages/openai/resources/chat/completions/completions.py", line 1296, in create
+    return self._post(
+           ^^^^^^^^^^^
+  File "/home/ubuntu/repos/Hidden-Layer-Internal/.venv/lib/python3.12/site-packages/openai/_base_client.py", line 1375, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/repos/Hidden-Layer-Internal/.venv/lib/python3.12/site-packages/openai/_base_client.py", line 1148, in request
+    raise self._make_status_error_from_response(err.response) from None
+openai.APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient Balance (request_id: 1154e3fc-da44-48dc-aaf8-61a875304fcc)', 'type': 'unknown_error', 'param': None, 'code': 'invalid_request_error'}}
+
+Per-task reflection failed: Error code: 402 - {'error': {'message': 'Insufficient Balance (request_id: ef725f24-1721-478f-b9d6-2b8429edeab0)', 'type': 'unknown_error', 'param': None, 'code': 'invalid_request_error'}}
+Iteration 6: Reflective mutation did not propose a new candidate
+Iteration 7: Selected program 0 score: 0.0
+Batched reflection failed (Error code: 402 - {'error': {'message': 'Insufficient Balance (request_id: 89faf3ee-6eb8-4c1e-bc0e-ded842019689)', 'type': 'unknown_error', 'param': None, 'code': 'invalid_request_error'}}); retrying per task.
+Traceback (most recent call last):
+  File "/home/ubuntu/repos/gepa/src/gepa/proposer/reflective_mutation/reflective_mutation.py", line 262, in _propose_texts_batch_safe
+    return list(self._propose_texts_batch(jobs, mds))
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/repos/gepa/src/gepa/proposer/reflective_mutation/reflective_mutation.py", line 227, in _propose_texts_batch
+    return [self.propose_new_texts(*jobs[0], metadata=mds[0])]
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/repos/gepa/src/gepa/proposer/reflective_mutation/reflective_mutation.py", line 191, in propose_new_texts
+    proposal, next_lm = self._reflection_lm.reflect(candidate, reflective_dataset, components_to_update)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/repos/gepa/src/gepa/proposer/reflective_mutation/reflection_lm.py", line 166, in reflect
+    return self.reflect_many([(candidate, reflective_dataset, components_to_update)])[0]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/repos/gepa/src/gepa/proposer/reflective_mutation/reflection_lm.py", line 182, in reflect_many
+    raw_outputs = self._batch_complete([r[2] for r in rendered], [r[3] for r in rendered])
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/repos/gepa/src/gepa/proposer/reflective_mutation/reflection_lm.py", line 153, in _batch_complete
+    return [self.lm(prompts[0])]
+            ^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/repos/gepa/src/gepa/lm.py", line 254, in __call__
+    result = self._fn(prompt)
+             ^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/repos/Hidden-Layer-Internal/src/hidden_layer/improve/reflection.py", line 39, in __call__
+    resp = client.chat.completions.create(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/repos/Hidden-Layer-Internal/.venv/lib/python3.12/site-packages/openai/_utils/_utils.py", line 298, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/repos/Hidden-Layer-Internal/.venv/lib/python3.12/site-packages/openai/resources/chat/completions/completions.py", line 1296, in create
+    return self._post(
+           ^^^^^^^^^^^
+  File "/home/ubuntu/repos/Hidden-Layer-Internal/.venv/lib/python3.12/site-packages/openai/_base_client.py", line 1375, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/repos/Hidden-Layer-Internal/.venv/lib/python3.12/site-packages/openai/_base_client.py", line 1148, in request
+    raise self._make_status_error_from_response(err.response) from None
+openai.APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient Balance (request_id: 89faf3ee-6eb8-4c1e-bc0e-ded842019689)', 'type': 'unknown_error', 'param': None, 'code': 'invalid_request_error'}}
+
+Per-task reflection failed: Error code: 402 - {'error': {'message': 'Insufficient Balance (request_id: 98d38604-736a-44ff-9266-c8ec41fb71f3)', 'type': 'unknown_error', 'param': None, 'code': 'invalid_request_error'}}
+Iteration 7: Reflective mutation did not propose a new candidate
+Iteration 8: Selected program 0 score: 0.0
+Batched reflection failed (Error code: 402 - {'error': {'message': 'Insufficient Balance (request_id: 1bf4502d-2548-4c40-94b4-576a3b63c6f3)', 'type': 'unknown_error', 'param': None, 'code': 'invalid_request_error'}}); retrying per task.
+Traceback (most recent call last):
+  File "/home/ubuntu/repos/gepa/src/gepa/proposer/reflective_mutation/reflective_mutation.py", line 262, in _propose_texts_batch_safe
+    return list(self._propose_texts_batch(jobs, mds))
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/repos/gepa/src/gepa/proposer/reflective_mutation/reflective_mutation.py", line 227, in _propose_texts_batch
+    return [self.propose_new_texts(*jobs[0], metadata=mds[0])]
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/repos/gepa/src/gepa/proposer/reflective_mutation/reflective_mutation.py", line 191, in propose_new_texts
+    proposal, next_lm = self._reflection_lm.reflect(candidate, reflective_dataset, components_to_update)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/repos/gepa/src/gepa/proposer/reflective_mutation/reflection_lm.py", line 166, in reflect
+    return self.reflect_many([(candidate, reflective_dataset, components_to_update)])[0]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/repos/gepa/src/gepa/proposer/reflective_mutation/reflection_lm.py", line 182, in reflect_many
+    raw_outputs = self._batch_complete([r[2] for r in rendered], [r[3] for r in rendered])
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/repos/gepa/src/gepa/proposer/reflective_mutation/reflection_lm.py", line 153, in _batch_complete
+    return [self.lm(prompts[0])]
+            ^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/repos/gepa/src/gepa/lm.py", line 254, in __call__
+    result = self._fn(prompt)
+             ^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/repos/Hidden-Layer-Internal/src/hidden_layer/improve/reflection.py", line 39, in __call__
+    resp = client.chat.completions.create(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/repos/Hidden-Layer-Internal/.venv/lib/python3.12/site-packages/openai/_utils/_utils.py", line 298, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/repos/Hidden-Layer-Internal/.venv/lib/python3.12/site-packages/openai/resources/chat/completions/completions.py", line 1296, in create
+    return self._post(
+           ^^^^^^^^^^^
+  File "/home/ubuntu/repos/Hidden-Layer-Internal/.venv/lib/python3.12/site-packages/openai/_base_client.py", line 1375, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/repos/Hidden-Layer-Internal/.venv/lib/python3.12/site-packages/openai/_base_client.py", line 1148, in request
+    raise self._make_status_error_from_response(err.response) from None
+openai.APIStatusError: Error code: 402 - {'error': {'message': 'Insufficient Balance (request_id: 1bf4502d-2548-4c40-94b4-576a3b63c6f3)', 'type': 'unknown_error', 'param': None, 'code': 'invalid_request_error'}}
+
+Per-task reflection failed: Error code: 402 - {'error': {'message': 'Insufficient Balance (request_id: f5ad3acf-3cf4-4bb1-851a-ec7e14b59656)', 'type': 'unknown_error', 'param': None, 'code': 'invalid_request_error'}}
+Iteration 8: Reflective mutation did not propose a new candidate

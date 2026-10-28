@@ -1,0 +1,1713 @@
+[
+ {
+  "name": "GITHUB_CHECK_IF_PULL_REQUEST_HAS_BEEN_MERGED",
+  "title": null,
+  "description": "Checks if a specified GitHub pull request has been merged, indicated by a 204 HTTP status (merged) or 404 (not merged/found).",
+  "input_schema": {
+   "type": "object",
+   "properties": {
+    "repo": {
+     "type": "string",
+     "description": "The name of the repository, without the `.git` extension (not case sensitive).\nExample: \"Spoon-Knife\""
+    },
+    "owner": {
+     "type": "string",
+     "description": "The account owner of the repository (not case sensitive).\nExample: \"octocat\""
+    },
+    "pull_number": {
+     "type": "integer",
+     "description": "The number that identifies the pull request.\nExample: \"1347\""
+    }
+   },
+   "required": [
+    "repo",
+    "owner",
+    "pull_number"
+   ],
+   "additionalProperties": false,
+   "$schema": "http://json-schema.org/draft-07/schema#"
+  },
+  "execution": {
+   "task_support": "forbidden"
+  },
+  "output_schema": null,
+  "icons": null,
+  "annotations": {
+   "title": "Check if pull request merged",
+   "read_only_hint": true,
+   "destructive_hint": false,
+   "idempotent_hint": false,
+   "open_world_hint": true
+  },
+  "meta": null
+ },
+ {
+  "name": "GITHUB_CREATE_AN_ISSUE",
+  "title": null,
+  "description": "Creates a new issue in a GitHub repository, requiring the repository to exist and have issues enabled; specific fields like assignees, milestone, or labels may require push access.",
+  "input_schema": {
+   "type": "object",
+   "properties": {
+    "body": {
+     "type": "string",
+     "description": "The detailed textual contents of the new issue.\nExamples:\n  \"Detailed description of the bug with steps to reproduce.\"\n  \"I think adding a dark mode would improve user experience...\""
+    },
+    "repo": {
+     "type": "string",
+     "description": "The name of the repository, without the `.git` extension (case-insensitive). The repository must exist, be accessible, and have issues enabled.\nExamples:\n  \"Spoon-Knife\"\n  \"linux\""
+    },
+    "owner": {
+     "type": "string",
+     "description": "The GitHub account owner of the repository (case-insensitive). The repository must exist and be accessible to the authenticated user.\nExamples:\n  \"octocat\"\n  \"torvalds\""
+    },
+    "title": {
+     "type": "string",
+     "description": "The title for the new issue.\nExamples:\n  \"Found a critical bug\"\n  \"Feature request: Add dark mode\""
+    },
+    "labels": {
+     "type": "array",
+     "items": {
+      "type": "string"
+     },
+     "description": "Array of label names to associate with this issue (generally case-insensitive). NOTE: Only users with push access can set labels; they are silently dropped otherwise. Pass an empty list to clear all labels.\nExamples:\n  [\"bug\",\"critical\"]\n  [\"enhancement\",\"ui\"]\n  [\"documentation\"]"
+    },
+    "assignee": {
+     "type": "string",
+     "description": "Login for the user to whom this issue should be assigned. NOTE: Only users with push access can set the assignee; it is silently dropped otherwise. **This field is deprecated in favor of `assignees`.**\nExamples:\n  \"octocat\"\n  \"monalisa\""
+    },
+    "assignees": {
+     "type": "array",
+     "items": {
+      "type": "string"
+     },
+     "description": "GitHub login names for users to assign to this issue. NOTE: Only users with push access can set assignees; they are silently dropped otherwise.\nExamples:\n  [\"octocat\"]\n  [\"monalisa\",\"hubot\"]"
+    },
+    "milestone": {
+     "type": "string",
+     "description": "The ID of the milestone to associate this issue with (e.g., \"5\"). NOTE: Only users with push access can set the milestone; it is silently dropped otherwise.\nExamples:\n  \"1\"\n  \"5\""
+    }
+   },
+   "required": [
+    "repo",
+    "owner",
+    "title"
+   ],
+   "additionalProperties": false,
+   "$schema": "http://json-schema.org/draft-07/schema#"
+  },
+  "execution": {
+   "task_support": "forbidden"
+  },
+  "output_schema": null,
+  "icons": null,
+  "annotations": {
+   "title": "Create an issue",
+   "read_only_hint": false,
+   "destructive_hint": false,
+   "idempotent_hint": false,
+   "open_world_hint": true
+  },
+  "meta": null
+ },
+ {
+  "name": "GITHUB_CREATE_AN_ISSUE_COMMENT",
+  "title": null,
+  "description": "Creates a new comment on an existing GitHub issue or pull request within the specified repository.",
+  "input_schema": {
+   "type": "object",
+   "properties": {
+    "body": {
+     "type": "string",
+     "description": "Comment content in GitHub Flavored Markdown.\nExamples:\n  \"This is a **bold** comment!\"\n  \"Thanks for the update :+1:\"\n  \"Fixes #123\""
+    },
+    "repo": {
+     "type": "string",
+     "description": "Name of the repository (without `.git` extension); not case-sensitive.\nExamples:\n  \"Spoon-Knife\"\n  \"my-awesome-project\""
+    },
+    "owner": {
+     "type": "string",
+     "description": "Account owner of the repository (username or organization); not case-sensitive.\nExamples:\n  \"octocat\"\n  \"my-organization\""
+    },
+    "issue_number": {
+     "type": "integer",
+     "description": "Number identifying the issue or pull request for the comment.\nExamples:\n  42\n  101"
+    }
+   },
+   "required": [
+    "body",
+    "repo",
+    "owner",
+    "issue_number"
+   ],
+   "additionalProperties": false,
+   "$schema": "http://json-schema.org/draft-07/schema#"
+  },
+  "execution": {
+   "task_support": "forbidden"
+  },
+  "output_schema": null,
+  "icons": null,
+  "annotations": {
+   "title": "Create an issue comment",
+   "read_only_hint": false,
+   "destructive_hint": false,
+   "idempotent_hint": false,
+   "open_world_hint": true
+  },
+  "meta": null
+ },
+ {
+  "name": "GITHUB_FIND_PULL_REQUESTS",
+  "title": null,
+  "description": "Primary tool to find and search pull requests. Supports filtering by repository, author, state, labels, and merge status, and returns structured PR data for reliable use in workflows. GitHub search results are capped at ~1000 total items; narrow filters when totals approach this limit. `created_since`/`updated_since` filter on creation/update timestamps, not `merged_at`; apply merge-date filtering client-side.",
+  "input_schema": {
+   "type": "object",
+   "properties": {
+    "page": {
+     "type": "integer",
+     "description": "Page number of results to fetch.\nExamples:\n  1\n  2\n  3",
+     "default": 1
+    },
+    "repo": {
+     "type": "string",
+     "description": "Filter by specific repository. Can be provided in 'owner/repo' format (e.g., 'facebook/react'), or as just the repo name when used with the owner parameter. When owner and repo are both provided and have the same value, they are combined as 'owner/repo'. When omitted along with owner, search scope is determined by for_authenticated_user flag. The repository must exist and be accessible with your token. Prefer 'owner/repo' format; bare repo name without the `owner` parameter causes invalid repository format errors.\nExamples:\n  \"facebook/react\"\n  \"microsoft/vscode\"\n  \"octocat/Hello-World\"\n  \"react\""
+    },
+    "sort": {
+     "type": "string",
+     "enum": [
+      "comments",
+      "reactions",
+      "interactions",
+      "created",
+      "updated"
+     ],
+     "description": "Field to sort results by. Set explicitly to 'updated' with `order=desc` when recency matters; default behavior may return best-match relevance ordering instead.\nExamples:\n  \"updated\"\n  \"created\"\n  \"comments\"",
+     "default": "updated"
+    },
+    "label": {
+     "type": "string",
+     "description": "Filter by label name.\nExamples:\n  \"bug\"\n  \"enhancement\"\n  \"documentation\"\n  \"good first issue\""
+    },
+    "order": {
+     "type": "string",
+     "enum": [
+      "desc",
+      "asc"
+     ],
+     "description": "Sort order (ascending or descending).\nExamples:\n  \"desc\"\n  \"asc\"",
+     "default": "desc"
+    },
+    "owner": {
+     "type": "string",
+     "description": "Filter by repository owner (user or organization). Can be used alone to search all repositories for an owner, or combined with repo parameter to specify owner and repo separately. When both owner and repo are provided, the search is scoped to 'owner/repo'. When omitted along with repo, search scope is determined by for_authenticated_user flag. The owner must exist and repositories must be accessible with your token.\nExamples:\n  \"facebook\"\n  \"microsoft\"\n  \"octocat\""
+    },
+    "query": {
+     "type": "string",
+     "description": "Optional search query for PR title, description, or commit messages. Supports GitHub search syntax including label filters (e.g., 'label:bug'), logical operators (AND, OR, NOT), and text search. If not provided, PRs will be listed based on other filter parameters. Type qualifiers (type:pr, is:pr, is:issue, type:issue) are automatically normalized. When using logical operators with qualifiers like labels, the query is automatically grouped for proper parsing. When omitting query, ensure at least one structured filter parameter is provided; passing no query and no filters may cause validation errors. Prefer dedicated parameters (`label`, `state`, `author`) over embedding qualifiers in the query string. Exact title matching is not supported; post-filter on title client-side if needed.\nExamples:\n  \"bug fix\"\n  \"feature auth\"\n  \"label:bug\"\n  \"label:bug OR label:enhancement\"\n  \"refactor api\"\n  null"
+    },
+    "state": {
+     "type": "string",
+     "description": "Filter by PR state: 'open', 'closed', or 'all'.\nExamples:\n  \"open\"\n  \"closed\"\n  \"all\"",
+     "default": "open"
+    },
+    "author": {
+     "type": "string",
+     "description": "Filter by PR author username. Must be a valid GitHub username (alphanumeric characters and hyphens only, cannot start or end with hyphen). No dots or other special characters allowed.\nExamples:\n  \"octocat\"\n  \"defunkt\""
+    },
+    "assignee": {
+     "type": "string",
+     "description": "Filter by PR assignee username. Use '@me' for current user. Must be a valid GitHub username (alphanumeric characters and hyphens only, cannot start or end with hyphen). No dots or other special characters allowed.\nExamples:\n  \"octocat\"\n  \"@me\""
+    },
+    "language": {
+     "type": "string",
+     "description": "Filter by programming language.\nExamples:\n  \"python\"\n  \"javascript\"\n  \"typescript\"\n  \"go\""
+    },
+    "mentions": {
+     "type": "string",
+     "description": "Filter by username mentioned in PR. Must be a valid GitHub username (alphanumeric characters and hyphens only, cannot start or end with hyphen). No dots or other special characters allowed.\nExamples:\n  \"octocat\"\n  \"@me\""
+    },
+    "per_page": {
+     "type": "integer",
+     "description": "Number of results per page (maximum 100). GitHub caps total search results at ~1000 items; iterate `page` until results fewer than `per_page` are returned, and add `repo`, `label`, or date filters when totals approach 1000.\nExamples:\n  10\n  20\n  50",
+     "default": 20
+    },
+    "is_merged": {
+     "type": "boolean",
+     "description": "Filter by merge status. True for merged PRs, False for unmerged, None for all.\nExamples:\n  true\n  false"
+    },
+    "base_branch": {
+     "type": "string",
+     "description": "Filter by base branch name.\nExamples:\n  \"main\"\n  \"master\"\n  \"develop\"\n  \"staging\""
+    },
+    "head_branch": {
+     "type": "string",
+     "description": "Filter by head branch name.\nExamples:\n  \"feature/auth\"\n  \"bugfix/login\"\n  \"hotfix/critical\""
+    },
+    "created_since": {
+     "type": "string",
+     "description": "Filter PRs created after this date (ISO 8601 format). Provide as UTC ISO 8601 timestamp to avoid off-by-one-day errors at range boundaries. Does not filter on `merged_at`.\nExamples:\n  \"2024-01-01\"\n  \"2024-01-01T00:00:00Z\""
+    },
+    "updated_since": {
+     "type": "string",
+     "description": "Filter PRs updated after this date (ISO 8601 format).\nExamples:\n  \"2024-01-01\"\n  \"2024-01-01T00:00:00Z\""
+    },
+    "response_detail": {
+     "type": "string",
+     "enum": [
+      "minimal",
+      "full"
+     ],
+     "description": "Level of detail in the response. 'minimal' (default) returns an optimized response for AI agents. 'full' returns the complete GitHub API response.\nExamples:\n  \"minimal\"\n  \"full\"",
+     "default": "minimal"
+    },
+    "for_authenticated_user": {
+     "type": "boolean",
+     "description": "Include private repositories accessible to the authenticated user in search results. When True without repo/owner, searches PRs involving you (author, assignee, mentions, commenter) across all accessible repos. When False without repo/owner, restricts to public repos only. When repo/owner is specified, this flag has no effect on scope. Set to True when searching private repositories; False searches all of GitHub and produces large noisy result sets.\nExamples:\n  true\n  false",
+     "default": false
+    }
+   },
+   "additionalProperties": false,
+   "$schema": "http://json-schema.org/draft-07/schema#"
+  },
+  "execution": {
+   "task_support": "forbidden"
+  },
+  "output_schema": null,
+  "icons": null,
+  "annotations": {
+   "title": "Find Pull Requests",
+   "read_only_hint": true,
+   "destructive_hint": false,
+   "idempotent_hint": true,
+   "open_world_hint": true
+  },
+  "meta": null
+ },
+ {
+  "name": "GITHUB_GET_A_BRANCH",
+  "title": null,
+  "description": "Retrieves detailed information for a specified branch within a GitHub repository.",
+  "input_schema": {
+   "type": "object",
+   "properties": {
+    "repo": {
+     "type": "string",
+     "description": "The name of the repository without the `.git` extension. The name is not case sensitive. \nExample: \"Hello-World\""
+    },
+    "owner": {
+     "type": "string",
+     "description": "The account owner of the repository. The name is not case sensitive.\nExample: \"octocat\""
+    },
+    "branch": {
+     "type": "string",
+     "description": "The name of the branch. Cannot contain wildcard characters. To use wildcard characters in branch names, use [the GraphQL API](https://docs.github.com/graphql). If 'HEAD' is provided, it will be resolved to the repository's default branch.\nExample: \"main\""
+    }
+   },
+   "required": [
+    "repo",
+    "owner",
+    "branch"
+   ],
+   "additionalProperties": false,
+   "$schema": "http://json-schema.org/draft-07/schema#"
+  },
+  "execution": {
+   "task_support": "forbidden"
+  },
+  "output_schema": null,
+  "icons": null,
+  "annotations": {
+   "title": "Get a branch",
+   "read_only_hint": true,
+   "destructive_hint": false,
+   "idempotent_hint": false,
+   "open_world_hint": true
+  },
+  "meta": null
+ },
+ {
+  "name": "GITHUB_GET_A_COMMIT",
+  "title": null,
+  "description": "Retrieves a specific commit from a repository by its owner, name, and a valid commit reference (SHA, branch, or tag), supporting pagination for large diffs.",
+  "input_schema": {
+   "type": "object",
+   "properties": {
+    "ref": {
+     "type": "string",
+     "description": "The commit reference. Can be a commit SHA (e.g., '`sha`'), a branch name (e.g., 'heads/`BRANCH_NAME`' or simply '`BRANCH_NAME`'), or a tag name (e.g., 'tags/`TAG_NAME`'). For more information, see \"[Git References](https://git-scm.com/book/en/v2/Git-Internals-Git-References)\" in the Git documentation.\nExamples:\n  \"main\"\n  \"heads/develop\"\n  \"tags/v1.0.0\"\n  \"007a47250555ae82606ac2cb00f8f731976059a5\""
+    },
+    "page": {
+     "type": "integer",
+     "description": "Page number for paginating the commit's diff if it's too large. For more information, see \"[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api).\"",
+     "default": 1
+    },
+    "repo": {
+     "type": "string",
+     "description": "The name of the repository, without the `.git` extension. This field is not case-sensitive.\nExamples:\n  \"Spoon-Knife\"\n  \"linguist\""
+    },
+    "owner": {
+     "type": "string",
+     "description": "The username or organization name that owns the repository. This field is not case-sensitive.\nExamples:\n  \"octocat\"\n  \"github\""
+    },
+    "per_page": {
+     "type": "integer",
+     "description": "Number of results per page when paginating the commit's diff (max 100). For more information, see \"[Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api).\"",
+     "default": 30
+    }
+   },
+   "required": [
+    "ref",
+    "repo",
+    "owner"
+   ],
+   "additionalProperties": false,
+   "$schema": "http://json-schema.org/draft-07/schema#"
+  },
+  "execution": {
+   "task_support": "forbidden"
+  },
+  "output_schema": null,
+  "icons": null,
+  "annotations": {
+   "title": "Get a commit",
+   "read_only_hint": true,
+   "destructive_hint": false,
+   "idempotent_hint": false,
+   "open_world_hint": true
+  },
+  "meta": null
+ },
+ {
+  "name": "GITHUB_GET_AN_ISSUE",
+  "title": null,
+  "description": "Retrieves detailed information about a specific issue in a repository using the owner, repository name, and issue number.",
+  "input_schema": {
+   "type": "object",
+   "properties": {
+    "repo": {
+     "type": "string",
+     "description": "Name of the repository (without `.git` extension). Not case-sensitive.\nExample: \"Hello-World\""
+    },
+    "owner": {
+     "type": "string",
+     "description": "Username of the account owning the repository. Not case-sensitive.\nExample: \"octocat\""
+    },
+    "issue_number": {
+     "type": "integer",
+     "description": "The identifying number of the issue.\nExample: 1347"
+    }
+   },
+   "required": [
+    "repo",
+    "owner",
+    "issue_number"
+   ],
+   "additionalProperties": false,
+   "$schema": "http://json-schema.org/draft-07/schema#"
+  },
+  "execution": {
+   "task_support": "forbidden"
+  },
+  "output_schema": null,
+  "icons": null,
+  "annotations": {
+   "title": "Get an issue",
+   "read_only_hint": true,
+   "destructive_hint": false,
+   "idempotent_hint": true,
+   "open_world_hint": true
+  },
+  "meta": null
+ },
+ {
+  "name": "GITHUB_GET_A_PULL_REQUEST",
+  "title": null,
+  "description": "Retrieves a specific pull request from a GitHub repository using its owner, repository name, and pull request number.",
+  "input_schema": {
+   "type": "object",
+   "properties": {
+    "repo": {
+     "type": "string",
+     "description": "The name of the repository, without the .git extension. This value is not case sensitive.\nExample: \"Hello-World\""
+    },
+    "owner": {
+     "type": "string",
+     "description": "The username of the account that owns the repository. This value is not case sensitive.\nExample: \"octocat\""
+    },
+    "pull_number": {
+     "type": "integer",
+     "description": "The number that identifies the specific pull request.\nExample: 1347"
+    }
+   },
+   "required": [
+    "repo",
+    "owner",
+    "pull_number"
+   ],
+   "additionalProperties": false,
+   "$schema": "http://json-schema.org/draft-07/schema#"
+  },
+  "execution": {
+   "task_support": "forbidden"
+  },
+  "output_schema": null,
+  "icons": null,
+  "annotations": {
+   "title": "Get a pull request",
+   "read_only_hint": true,
+   "destructive_hint": false,
+   "idempotent_hint": false,
+   "open_world_hint": true
+  },
+  "meta": null
+ },
+ {
+  "name": "GITHUB_GET_A_REPOSITORY",
+  "title": null,
+  "description": "Retrieves detailed information about an existing and accessible GitHub repository.",
+  "input_schema": {
+   "type": "object",
+   "properties": {
+    "repo": {
+     "type": "string",
+     "minLength": 1,
+     "description": "The name of the repository, without the `.git` extension. This field is case-insensitive.\nExamples:\n  \"Hello-World\"\n  \"kubernetes\""
+    },
+    "owner": {
+     "type": "string",
+     "minLength": 1,
+     "description": "The username of the account that owns the repository. This field is case-insensitive.\nExamples:\n  \"octocat\"\n  \"kubernetes\""
+    }
+   },
+   "required": [
+    "repo",
+    "owner"
+   ],
+   "additionalProperties": false,
+   "$schema": "http://json-schema.org/draft-07/schema#"
+  },
+  "execution": {
+   "task_support": "forbidden"
+  },
+  "output_schema": null,
+  "icons": null,
+  "annotations": {
+   "title": "Get a repository",
+   "read_only_hint": true,
+   "destructive_hint": false,
+   "idempotent_hint": false,
+   "open_world_hint": true
+  },
+  "meta": null
+ },
+ {
+  "name": "GITHUB_GET_A_REPOSITORY_README",
+  "title": null,
+  "description": "Fetches the README file (if it exists and is accessible) from a specified GitHub repository, returning its Base64-encoded content and metadata.",
+  "input_schema": {
+   "type": "object",
+   "properties": {
+    "ref": {
+     "type": "string",
+     "description": "The specific git reference (branch name, tag name, or commit SHA) to retrieve the README from. If omitted, the repository's default branch is used.\nExamples:\n  \"main\"\n  \"develop\"\n  \"v2.1.0\"\n  \"c23a31f32747a8e2a13f8c11699a5e4e9148f2be\""
+    },
+    "repo": {
+     "type": "string",
+     "description": "The name of the repository, excluding the `.git` extension. This name is not case-sensitive.\nExamples:\n  \"Hello-World\"\n  \"my-project-name\""
+    },
+    "owner": {
+     "type": "string",
+     "description": "The GitHub account owner of the repository. This name is not case-sensitive.\nExamples:\n  \"octocat\"\n  \"my-organization\""
+    }
+   },
+   "required": [
+    "repo",
+    "owner"
+   ],
+   "additionalProperties": false,
+   "$schema": "http://json-schema.org/draft-07/schema#"
+  },
+  "execution": {
+   "task_support": "forbidden"
+  },
+  "output_schema": null,
+  "icons": null,
+  "annotations": {
+   "title": "Get a repository readme",
+   "read_only_hint": true,
+   "destructive_hint": false,
+   "idempotent_hint": false,
+   "open_world_hint": true
+  },
+  "meta": null
+ },
+ {
+  "name": "GITHUB_GET_A_TREE",
+  "title": null,
+  "description": "Browse and list all files/directories in a GitHub repository. Efficiently retrieves the complete repository structure in a single API call when used with recursive mode. Perfect for analyzing codebase structure, finding specific files, or getting an overview of repository contents without cloning.",
+  "input_schema": {
+   "type": "object",
+   "properties": {
+    "repo": {
+     "type": "string",
+     "description": "Repository name without owner or .git extension (e.g., for github.com/kubernetes/kubernetes, repo is 'kubernetes').\nExamples:\n  \"Spoon-Knife\"\n  \"enhancements\"\n  \"mercury\""
+    },
+    "owner": {
+     "type": "string",
+     "description": "Repository owner username or organization name (e.g., for github.com/kubernetes/kubernetes, owner is 'kubernetes').\nExamples:\n  \"octocat\"\n  \"kubernetes\"\n  \"ComposioHQ\""
+    },
+    "tree_sha": {
+     "type": "string",
+     "description": "Branch name (e.g., 'main', 'master'), tag name (e.g., 'v1.0.0'), commit SHA, or tree SHA. Directory paths are NOT supported - use a branch/tag to get the full tree, then extract the directory's SHA from results.\nExamples:\n  \"main\"\n  \"master\"\n  \"develop\"\n  \"v1.25.0\"\n  \"a1b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0\""
+    },
+    "recursive": {
+     "type": [
+      "string",
+      "boolean"
+     ],
+     "description": "Set to True (or '1'/'true') to fetch the ENTIRE repository file tree recursively (all files and directories in one call). Set to False or leave empty to fetch only the top-level files/folders. For browsing or analyzing the full repository structure, use recursive=True.\nExamples:\n  true\n  false\n  \"1\"\n  \"true\""
+    }
+   },
+   "required": [
+    "repo",
+    "owner",
+    "tree_sha"
+   ],
+   "additionalProperties": false,
+   "$schema": "http://json-schema.org/draft-07/schema#"
+  },
+  "execution": {
+   "task_support": "forbidden"
+  },
+  "output_schema": null,
+  "icons": null,
+  "annotations": {
+   "title": "List repository files and directories",
+   "read_only_hint": true,
+   "destructive_hint": false,
+   "idempotent_hint": false,
+   "open_world_hint": true
+  },
+  "meta": null
+ },
+ {
+  "name": "GITHUB_GET_REPOSITORY_CONTENT",
+  "title": null,
+  "description": "Retrieves a file's Base64 encoded content or lists a directory's contents from a GitHub repository.",
+  "input_schema": {
+   "type": "object",
+   "properties": {
+    "ref": {
+     "type": "string",
+     "description": "The name of the commit, branch, or tag to read from. Use this parameter to specify which branch (e.g., 'feat/godlocal-dev', 'main', 'develop'), tag (e.g., 'v1.2.0'), or commit SHA you want to access. If not provided, the repository's default branch will be used. Note: Branch names should be passed here, NOT in the path parameter.\nExamples:\n  \"main\"\n  \"feat/godlocal-dev\"\n  \"develop\"\n  \"v1.2.0\"\n  \"c8bca7c6a66f490c70b29cf3ac3d64070049ea73\""
+    },
+    "path": {
+     "type": "string",
+     "description": "Required. Path to file or directory in the repository. Empty string ('') retrieves root directory contents. Leading slashes auto-stripped. CRITICAL: Do NOT pass branch names here (e.g., 'feat/godlocal-dev', 'main'). Branch names belong in the `ref` parameter. Path should be file/directory path only (e.g., 'src/main.js', 'README.md'), NOT prefixed with branch name (use 'src/main.js' not 'main/src/main.js'). File paths must include extension (e.g., 'README.md', not 'README'). For common files (README, LICENSE, CHANGELOG) without extensions, action auto-tries common extensions (.md, .txt, .rst). Paths are case-sensitive. On 404 errors, list parent directory to verify exact path/casing.\nExamples:\n  \"README.md\"\n  \"src/main.js\"\n  \"docs\"\n  \"\""
+    },
+    "repo": {
+     "type": "string",
+     "description": "Required. The name of the repository, without the `.git` extension. This name is not case sensitive.\nExample: \"Spoon-Knife\""
+    },
+    "owner": {
+     "type": "string",
+     "description": "Required. The account owner of the repository. This name is not case sensitive. Can also accept full repository path in format 'owner/repo' - the repo part will be extracted automatically.\nExamples:\n  \"octocat\"\n  \"octocat/Hello-World\""
+    }
+   },
+   "required": [
+    "path",
+    "repo",
+    "owner"
+   ],
+   "additionalProperties": false,
+   "$schema": "http://json-schema.org/draft-07/schema#"
+  },
+  "execution": {
+   "task_support": "forbidden"
+  },
+  "output_schema": null,
+  "icons": null,
+  "annotations": {
+   "title": "Get repository content",
+   "read_only_hint": true,
+   "destructive_hint": false,
+   "idempotent_hint": true,
+   "open_world_hint": true
+  },
+  "meta": null
+ },
+ {
+  "name": "GITHUB_LIST_BRANCHES",
+  "title": null,
+  "description": "List branches in a GitHub repository. Returns branch names, commit information, and protection status. Use this action when you need to retrieve all branches in a repository, optionally filtered by protection status. This is useful for identifying available branches, checking which branches are protected, or preparing to create pull requests.",
+  "input_schema": {
+   "type": "object",
+   "properties": {
+    "page": {
+     "type": "integer",
+     "minimum": 1,
+     "description": "The page number of the results to fetch. For more information, see 'Using pagination in the REST API'.\nExamples:\n  1\n  2\n  3",
+     "default": 1
+    },
+    "repo": {
+     "type": "string",
+     "description": "The name of the repository without the `.git` extension. The name is not case sensitive.\nExamples:\n  \"hello-world\"\n  \"vscode\""
+    },
+    "owner": {
+     "type": "string",
+     "description": "The account owner of the repository. The name is not case sensitive.\nExamples:\n  \"octocat\"\n  \"microsoft\""
+    },
+    "per_page": {
+     "type": "integer",
+     "minimum": 1,
+     "maximum": 100,
+     "description": "The number of results per page (max 100). For more information, see 'Using pagination in the REST API'.\nExamples:\n  25\n  50\n  100",
+     "default": 25
+    },
+    "protected": {
+     "type": "boolean",
+     "description": "Setting to `true` returns only branches protected by branch protections or rulesets. When set to `false`, only unprotected branches are returned. Omitting this parameter returns all branches.\nExamples:\n  true\n  false"
+    }
+   },
+   "required": [
+    "repo",
+    "owner"
+   ],
+   "additionalProperties": false,
+   "$schema": "http://json-schema.org/draft-07/schema#"
+  },
+  "execution": {
+   "task_support": "forbidden"
+  },
+  "output_schema": null,
+  "icons": null,
+  "annotations": {
+   "title": "List branches",
+   "read_only_hint": true,
+   "destructive_hint": false,
+   "idempotent_hint": true,
+   "open_world_hint": true
+  },
+  "meta": null
+ },
+ {
+  "name": "GITHUB_LIST_COMMITS",
+  "title": null,
+  "description": "Lists commits for a GitHub repository. Requires 'owner' (username/org) and 'repo' (repository name) parameters. Optionally filter by SHA/branch, path, author, committer, or date range.",
+  "input_schema": {
+   "type": "object",
+   "properties": {
+    "sha": {
+     "type": "string",
+     "description": "SHA hash or branch name to start listing commits from. If not provided, the GitHub API uses the repository's default branch (usually `main` or `master`).\nExamples:\n  \"main\"\n  \"develop\"\n  \"a1b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0\""
+    },
+    "page": {
+     "type": "integer",
+     "description": "Page number of the results to fetch when using pagination.\nExamples:\n  \"1\"\n  \"2\"",
+     "default": 1
+    },
+    "path": {
+     "type": "string",
+     "description": "Only commits modifying this specific file path will be returned.\nExamples:\n  \"README.md\"\n  \"src/utils/helpers.py\""
+    },
+    "repo": {
+     "type": "string",
+     "pattern": "^[a-zA-Z0-9._-]+$",
+     "description": "The name of the repository without the `.git` extension (repository name only, not the full 'owner/repo' path). Must contain only alphanumeric characters, hyphens (-), underscores (_), and periods (.). Wildcards like '*' are not supported.\nExamples:\n  \"Spoon-Knife\"\n  \"my-project\""
+    },
+    "owner": {
+     "type": "string",
+     "pattern": "^[a-zA-Z0-9]([a-zA-Z0-9-]{0,37}[a-zA-Z0-9])?$|^[a-zA-Z0-9]$",
+     "description": "The account owner of the repository (username or organization name only, not the full 'owner/repo' path). Must contain only alphanumeric characters and hyphens, cannot start/end with a hyphen, max 39 characters. Wildcards are not supported.\nExamples:\n  \"octocat\"\n  \"my-organization\""
+    },
+    "since": {
+     "type": "string",
+     "description": "Only commits created on or after this timestamp will be returned. This is a timestamp in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`.\nExample: \"2023-01-01T00:00:00Z\""
+    },
+    "until": {
+     "type": "string",
+     "description": "Only commits created before this timestamp will be returned. This is a timestamp in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`.\nExample: \"2023-12-31T23:59:59Z\""
+    },
+    "author": {
+     "type": "string",
+     "description": "Filter commits by the commit author's GitHub login or email address.\nExamples:\n  \"octocat\"\n  \"mona@github.com\""
+    },
+    "per_page": {
+     "type": "integer",
+     "description": "Number of results to return per page (max 100).\nExamples:\n  \"30\"\n  \"100\"",
+     "default": 1
+    },
+    "committer": {
+     "type": "string",
+     "description": "Filter commits by the commit committer's GitHub login or email address. The committer is the user who applied the patch and may differ from the original author.\nExamples:\n  \"web-flow\"\n  \"octocat@github.com\""
+    }
+   },
+   "required": [
+    "repo",
+    "owner"
+   ],
+   "additionalProperties": false,
+   "$schema": "http://json-schema.org/draft-07/schema#"
+  },
+  "execution": {
+   "task_support": "forbidden"
+  },
+  "output_schema": null,
+  "icons": null,
+  "annotations": {
+   "title": "List commits",
+   "read_only_hint": true,
+   "destructive_hint": false,
+   "idempotent_hint": true,
+   "open_world_hint": true
+  },
+  "meta": null
+ },
+ {
+  "name": "GITHUB_LIST_COMMITS_ON_A_PULL_REQUEST",
+  "title": null,
+  "description": "Lists commits for a pull request; requires the repository and pull request to exist and be accessible, and supports pagination.",
+  "input_schema": {
+   "type": "object",
+   "properties": {
+    "page": {
+     "type": "integer",
+     "description": "The page number of the results to fetch.",
+     "default": 1
+    },
+    "repo": {
+     "type": "string",
+     "description": "Repository name, without the `.git` extension. This name is not case-sensitive.\nExample: \"Hello-World\""
+    },
+    "owner": {
+     "type": "string",
+     "description": "Account owner of the repository. This name is not case-sensitive.\nExample: \"octocat\""
+    },
+    "per_page": {
+     "type": "integer",
+     "description": "The number of results per page (maximum 100).",
+     "default": 30
+    },
+    "pull_number": {
+     "type": "integer",
+     "description": "The number that identifies the pull request.\nExample: 1347"
+    }
+   },
+   "required": [
+    "repo",
+    "owner",
+    "pull_number"
+   ],
+   "additionalProperties": false,
+   "$schema": "http://json-schema.org/draft-07/schema#"
+  },
+  "execution": {
+   "task_support": "forbidden"
+  },
+  "output_schema": null,
+  "icons": null,
+  "annotations": {
+   "title": "List commits on a pull request",
+   "read_only_hint": true,
+   "destructive_hint": false,
+   "idempotent_hint": true,
+   "open_world_hint": true
+  },
+  "meta": null
+ },
+ {
+  "name": "GITHUB_LIST_ORGANIZATION_REPOSITORIES",
+  "title": null,
+  "description": "Retrieves a list of repositories for a specified GitHub organization, allowing filtering by type and sorting.",
+  "input_schema": {
+   "type": "object",
+   "properties": {
+    "org": {
+     "type": "string",
+     "description": "Name of the GitHub organization (not case-sensitive).\nExamples:\n  \"github\"\n  \"microsoft\"\n  \"google\""
+    },
+    "page": {
+     "type": "integer",
+     "description": "Page number for pagination (starts from 1).\nExamples:\n  \"1\"\n  \"2\"\n  \"5\"",
+     "default": 1
+    },
+    "sort": {
+     "type": "string",
+     "enum": [
+      "created",
+      "updated",
+      "pushed",
+      "full_name"
+     ],
+     "description": "Property to sort repositories by: `created`, `updated`, `pushed`, or `full_name`.\nExamples:\n  \"created\"\n  \"updated\"\n  \"pushed\"\n  \"full_name\"",
+     "default": "created"
+    },
+    "type": {
+     "type": "string",
+     "enum": [
+      "all",
+      "public",
+      "private",
+      "forks",
+      "sources",
+      "member"
+     ],
+     "description": "Specifies the type of repositories to return: `all`, `public`, `private` (requires permissions), `forks`, `sources` (not forks), or `member` (repositories with explicit user access).\nExamples:\n  \"all\"\n  \"public\"\n  \"private\"\n  \"forks\"\n  \"sources\"\n  \"member\"",
+     "default": "all"
+    },
+    "per_page": {
+     "type": "integer",
+     "description": "Number of results per page (maximum 100).\nExamples:\n  \"30\"\n  \"50\"\n  \"100\"",
+     "default": 1
+    },
+    "direction": {
+     "type": "string",
+     "enum": [
+      "asc",
+      "desc"
+     ],
+     "description": "Sort order: `asc` (ascending) or `desc` (descending). Defaults to `asc` if `sort` is `full_name`, else `desc`.\nExamples:\n  \"asc\"\n  \"desc\""
+    }
+   },
+   "required": [
+    "org"
+   ],
+   "additionalProperties": false,
+   "$schema": "http://json-schema.org/draft-07/schema#"
+  },
+  "execution": {
+   "task_support": "forbidden"
+  },
+  "output_schema": null,
+  "icons": null,
+  "annotations": {
+   "title": "List organization repositories",
+   "read_only_hint": true,
+   "destructive_hint": false,
+   "idempotent_hint": false,
+   "open_world_hint": true
+  },
+  "meta": null
+ },
+ {
+  "name": "GITHUB_LIST_PULL_REQUESTS",
+  "title": null,
+  "description": "Lists pull requests for a GitHub repository. REQUIRES 'owner' AND 'repo' parameters - both are MANDATORY and must be provided in every call. Does NOT support filtering by assignee or date range - use GITHUB_FIND_PULL_REQUESTS instead for searching PRs by assignee, author, or across multiple repositories.",
+  "input_schema": {
+   "type": "object",
+   "properties": {
+    "base": {
+     "type": "string",
+     "description": "Filter by base branch name.\nExamples:\n  \"main\"\n  \"develop\"\n  \"gh-pages\""
+    },
+    "head": {
+     "type": "string",
+     "description": "Filter by head user/org and branch name, e.g., `user:ref-name`.\nExamples:\n  \"octocat:test-branch\"\n  \"github:new-script-format\""
+    },
+    "page": {
+     "type": "integer",
+     "description": "Page number for results.\nExamples:\n  \"1\"\n  \"2\"\n  \"5\"",
+     "default": 1
+    },
+    "repo": {
+     "type": "string",
+     "minLength": 1,
+     "description": "[REQUIRED - MUST BE PROVIDED] The name of the repository (without the `.git` extension). This parameter is mandatory and cannot be omitted. Example: 'Spoon-Knife' or 'vscode'. To search PRs across multiple repos, use GITHUB_FIND_PULL_REQUESTS instead.\nExamples:\n  \"Spoon-Knife\"\n  \"my-project\"\n  \"vscode\""
+    },
+    "sort": {
+     "type": "string",
+     "description": "Sorts results. Valid values: 'created', 'updated', 'popularity', 'long-running'. 'popularity' is by comment count; 'long-running' by age and recent activity.\nExamples:\n  \"created\"\n  \"updated\"\n  \"popularity\"\n  \"long-running\"",
+     "default": "created"
+    },
+    "owner": {
+     "type": "string",
+     "minLength": 1,
+     "description": "[REQUIRED - MUST BE PROVIDED] The GitHub username or organization name that owns the repository. This parameter is mandatory and cannot be omitted. Example: 'octocat' or 'microsoft'. To search PRs across all repos without specifying owner, use GITHUB_FIND_PULL_REQUESTS instead.\nExamples:\n  \"octocat\"\n  \"my-organization\"\n  \"microsoft\""
+    },
+    "state": {
+     "type": "string",
+     "description": "Filter by pull request state. Valid values: 'open', 'closed', 'all'.\nExamples:\n  \"open\"\n  \"closed\"\n  \"all\"",
+     "default": "open"
+    },
+    "per_page": {
+     "type": "integer",
+     "description": "Number of results per page (maximum 100).\nExamples:\n  \"30\"\n  \"50\"\n  \"100\"",
+     "default": 30
+    },
+    "direction": {
+     "type": "string",
+     "description": "Sort direction. Valid values: 'asc', 'desc'. Defaults to 'desc' if sort is 'created' or unspecified, else 'asc'.\nExamples:\n  \"asc\"\n  \"desc\""
+    }
+   },
+   "required": [
+    "repo",
+    "owner"
+   ],
+   "additionalProperties": false,
+   "$schema": "http://json-schema.org/draft-07/schema#"
+  },
+  "execution": {
+   "task_support": "forbidden"
+  },
+  "output_schema": null,
+  "icons": null,
+  "annotations": {
+   "title": "List pull requests",
+   "read_only_hint": true,
+   "destructive_hint": false,
+   "idempotent_hint": true,
+   "open_world_hint": true
+  },
+  "meta": null
+ },
+ {
+  "name": "GITHUB_LIST_PULL_REQUESTS_FILES",
+  "title": null,
+  "description": "Lists all files (including additions, modifications, and removals) associated with a specific pull request in a GitHub repository.",
+  "input_schema": {
+   "type": "object",
+   "properties": {
+    "page": {
+     "type": "integer",
+     "description": "Page number of the results to retrieve for pagination.\nExamples:\n  \"1\"\n  \"2\"\n  \"10\"",
+     "default": 1
+    },
+    "repo": {
+     "type": "string",
+     "description": "The name of the repository, without the `.git` extension. This field is not case sensitive.\nExamples:\n  \"Hello-World\"\n  \"my-cool-project\""
+    },
+    "owner": {
+     "type": "string",
+     "description": "The account owner of the repository (e.g., a GitHub username or organization name). This field is not case sensitive.\nExamples:\n  \"octocat\"\n  \"my-organization\""
+    },
+    "per_page": {
+     "type": "integer",
+     "description": "Number of file results to return per page (max 100).\nExamples:\n  \"30\"\n  \"50\"\n  \"100\"",
+     "default": 30
+    },
+    "pull_number": {
+     "type": "integer",
+     "description": "The numeric identifier of the pull request whose files are to be listed.\nExamples:\n  \"1\"\n  \"123\"\n  \"42\""
+    }
+   },
+   "required": [
+    "repo",
+    "owner",
+    "pull_number"
+   ],
+   "additionalProperties": false,
+   "$schema": "http://json-schema.org/draft-07/schema#"
+  },
+  "execution": {
+   "task_support": "forbidden"
+  },
+  "output_schema": null,
+  "icons": null,
+  "annotations": {
+   "title": "List pull requests files",
+   "read_only_hint": true,
+   "destructive_hint": false,
+   "idempotent_hint": true,
+   "open_world_hint": true
+  },
+  "meta": null
+ },
+ {
+  "name": "GITHUB_LIST_REPOSITORIES_FOR_THE_AUTHENTICATED_USER",
+  "title": null,
+  "description": "Lists repositories for the authenticated user; using 'type' with 'visibility' or 'affiliation' API parameters (not in this model) can cause a 422 error.",
+  "input_schema": {
+   "type": "object",
+   "properties": {
+    "page": {
+     "type": "integer",
+     "description": "Page number of results to fetch.\nExamples:\n  \"1\"\n  \"2\"\n  \"10\"",
+     "default": 1
+    },
+    "sort": {
+     "type": "string",
+     "enum": [
+      "created",
+      "updated",
+      "pushed",
+      "full_name"
+     ],
+     "description": "The repository property by which to sort the results.\nExamples:\n  \"created\"\n  \"full_name\"\n  \"updated\"",
+     "default": "full_name"
+    },
+    "type": {
+     "type": "string",
+     "enum": [
+      "all",
+      "owner",
+      "public",
+      "private",
+      "member"
+     ],
+     "description": "Filters the results to repositories of the specified type.\nExamples:\n  \"all\"\n  \"owner\"\n  \"member\"",
+     "default": "all"
+    },
+    "since": {
+     "type": "string",
+     "description": "Filters for repositories updated at or after this specified time. Provide as an ISO 8601 formatted timestamp.\nExamples:\n  \"2023-01-01T00:00:00Z\"\n  \"2023-05-15T10:30:00-07:00\""
+    },
+    "before": {
+     "type": "string",
+     "description": "Filters for repositories updated before this specified time. Provide as an ISO 8601 formatted timestamp.\nExamples:\n  \"2024-01-01T00:00:00Z\"\n  \"2024-03-20T18:45:00+00:00\""
+    },
+    "per_page": {
+     "type": "integer",
+     "description": "The number of results to return per page (maximum 100).\nExamples:\n  \"30\"\n  \"50\"\n  \"100\"",
+     "default": 30
+    },
+    "direction": {
+     "type": "string",
+     "enum": [
+      "asc",
+      "desc"
+     ],
+     "description": "The direction of the sort. Defaults to `asc` when `sort` is 'full_name', and `desc` otherwise.\nExamples:\n  \"asc\"\n  \"desc\""
+    }
+   },
+   "additionalProperties": false,
+   "$schema": "http://json-schema.org/draft-07/schema#"
+  },
+  "execution": {
+   "task_support": "forbidden"
+  },
+  "output_schema": null,
+  "icons": null,
+  "annotations": {
+   "title": "List repositories for the authenticated user",
+   "read_only_hint": true,
+   "destructive_hint": false,
+   "idempotent_hint": false,
+   "open_world_hint": true
+  },
+  "meta": null
+ },
+ {
+  "name": "GITHUB_LIST_REPOSITORY_ISSUES",
+  "title": null,
+  "description": "Lists issues (including pull requests) from a GitHub repository. Requires BOTH 'owner' AND 'repo' parameters (e.g., owner='octocat', repo='Hello-World' for github.com/octocat/Hello-World).",
+  "input_schema": {
+   "type": "object",
+   "properties": {
+    "page": {
+     "type": "integer",
+     "description": "Page number for the set of results. Refer to GitHub's REST API documentation for pagination details.\nExamples:\n  \"1\"\n  \"5\"",
+     "default": 1
+    },
+    "repo": {
+     "type": "string",
+     "description": "REQUIRED. The name of the repository (without .git extension). For 'octocat/Hello-World', repo is 'Hello-World'. Not case-sensitive. Must be provided together with 'owner'.\nExamples:\n  \"Hello-World\"\n  \"vscode\"\n  \"react\""
+    },
+    "sort": {
+     "type": "string",
+     "enum": [
+      "created",
+      "updated",
+      "comments"
+     ],
+     "description": "The field to sort the results by.\nExamples:\n  \"created\"\n  \"updated\"\n  \"comments\"",
+     "default": "created"
+    },
+    "type": {
+     "type": "string",
+     "description": "Filter issues by type name. Use '*' for issues with any type, 'none' for issues without a type, or specify a type name.\nExamples:\n  \"bug\"\n  \"feature\"\n  \"*\"\n  \"none\""
+    },
+    "owner": {
+     "type": "string",
+     "description": "REQUIRED. The GitHub account owner (user or organization) of the repository. For 'octocat/Hello-World', owner is 'octocat'. Not case-sensitive. Must be provided together with 'repo'.\nExamples:\n  \"octocat\"\n  \"microsoft\"\n  \"facebook\""
+    },
+    "since": {
+     "type": "string",
+     "description": "Filters issues to include only those updated at or after the specified time. This should be a timestamp in ISO 8601 format (e.g., `YYYY-MM-DDTHH:MM:SSZ`).\nExamples:\n  \"2023-01-15T10:00:00Z\"\n  \"2024-03-10T00:00:00+05:30\""
+    },
+    "state": {
+     "type": "string",
+     "enum": [
+      "open",
+      "closed",
+      "all"
+     ],
+     "description": "Filters issues based on their state.\nExamples:\n  \"open\"\n  \"closed\"\n  \"all\"",
+     "default": "open"
+    },
+    "labels": {
+     "type": "string",
+     "description": "A comma-separated list of label names to filter issues by. Example: 'bug,ui,@high'.\nExamples:\n  \"bug,ui,@high\"\n  \"enhancement\"\n  \"help wanted,good first issue\""
+    },
+    "creator": {
+     "type": "string",
+     "description": "Filter issues by the username of the user who created the issue.\nExample: \"octocat\""
+    },
+    "assignee": {
+     "type": "string",
+     "description": "Filter issues by assignee's username. Use 'none' for issues with no assignee, or '*' for issues assigned to any user.\nExamples:\n  \"codertocat\"\n  \"none\"\n  \"*\""
+    },
+    "per_page": {
+     "type": "integer",
+     "description": "Number of results per page (max 100). Default is 30, which matches GitHub's API default. Refer to GitHub's REST API documentation for pagination details.\nExamples:\n  \"30\"\n  \"100\"",
+     "default": 30
+    },
+    "direction": {
+     "type": "string",
+     "enum": [
+      "asc",
+      "desc"
+     ],
+     "description": "The direction of the sort.\nExamples:\n  \"asc\"\n  \"desc\"",
+     "default": "desc"
+    },
+    "mentioned": {
+     "type": "string",
+     "description": "Filter issues by a user mentioned in the issue's description or comments. Provide the username.\nExamples:\n  \"octodocs\"\n  \"hubot\""
+    },
+    "milestone": {
+     "type": "string",
+     "description": "Filter issues by milestone. Provide the milestone `number` as a string, '*' for issues with any milestone, or 'none' for issues without a milestone.\nExamples:\n  \"1\"\n  \"*\"\n  \"none\""
+    }
+   },
+   "required": [
+    "repo",
+    "owner"
+   ],
+   "additionalProperties": false,
+   "$schema": "http://json-schema.org/draft-07/schema#"
+  },
+  "execution": {
+   "task_support": "forbidden"
+  },
+  "output_schema": null,
+  "icons": null,
+  "annotations": {
+   "title": "List repository issues",
+   "read_only_hint": true,
+   "destructive_hint": false,
+   "idempotent_hint": true,
+   "open_world_hint": true
+  },
+  "meta": null
+ },
+ {
+  "name": "GITHUB_LIST_REVIEW_COMMENTS_ON_A_PULL_REQUEST",
+  "title": null,
+  "description": "Lists all review comments on a specific pull request within a GitHub repository.",
+  "input_schema": {
+   "type": "object",
+   "properties": {
+    "page": {
+     "type": "integer",
+     "description": "Page number of results to retrieve.\nExample: 2",
+     "default": 1
+    },
+    "repo": {
+     "type": "string",
+     "description": "Name of the repository, without the `.git` extension. Not case sensitive.\nExample: \"Hello-World\""
+    },
+    "sort": {
+     "type": "string",
+     "enum": [
+      "created",
+      "updated"
+     ],
+     "description": "Sort review comments by `created` or `updated`.\nExample: \"created\"",
+     "default": "created"
+    },
+    "owner": {
+     "type": "string",
+     "description": "Username of the account owning the repository. Not case sensitive.\nExample: \"octocat\""
+    },
+    "since": {
+     "type": "string",
+     "description": "Only include comments updated at or after this ISO 8601 timestamp (`YYYY-MM-DDTHH:MM:SSZ`).\nExample: \"2023-01-15T10:00:00Z\""
+    },
+    "per_page": {
+     "type": "integer",
+     "description": "Number of comments per page (max 100).\nExample: 50",
+     "default": 30
+    },
+    "direction": {
+     "type": "string",
+     "enum": [
+      "asc",
+      "desc"
+     ],
+     "description": "Sort direction (`asc` or `desc`); ignored if `sort` is not provided.\nExample: \"desc\""
+    },
+    "pull_number": {
+     "type": "integer",
+     "description": "Unique number identifying the pull request.\nExample: 1347"
+    }
+   },
+   "required": [
+    "repo",
+    "owner",
+    "pull_number"
+   ],
+   "additionalProperties": false,
+   "$schema": "http://json-schema.org/draft-07/schema#"
+  },
+  "execution": {
+   "task_support": "forbidden"
+  },
+  "output_schema": null,
+  "icons": null,
+  "annotations": {
+   "title": "List review comments on a pull request",
+   "read_only_hint": true,
+   "destructive_hint": false,
+   "idempotent_hint": true,
+   "open_world_hint": true
+  },
+  "meta": null
+ },
+ {
+  "name": "GITHUB_LIST_REVIEWS_FOR_A_PULL_REQUEST",
+  "title": null,
+  "description": "Lists submitted reviews chronologically for a specific pull request within a GitHub repository.",
+  "input_schema": {
+   "type": "object",
+   "properties": {
+    "page": {
+     "type": "integer",
+     "description": "The page number for the set of results to retrieve.\nExamples:\n  \"1\"\n  \"2\"\n  \"10\"",
+     "default": 1
+    },
+    "repo": {
+     "type": "string",
+     "description": "The name of the repository, without the `.git` extension. This name is not case sensitive.\nExamples:\n  \"Hello-World\"\n  \"my-awesome-project\""
+    },
+    "owner": {
+     "type": "string",
+     "description": "The account owner of the repository (e.g., a GitHub username or organization name). This name is not case sensitive.\nExamples:\n  \"octocat\"\n  \"my-organization\""
+    },
+    "per_page": {
+     "type": "integer",
+     "description": "The number of review results to display per page. Maximum 100.\nExamples:\n  \"30\"\n  \"50\"\n  \"100\"",
+     "default": 30
+    },
+    "pull_number": {
+     "type": "integer",
+     "description": "The unique number identifying the pull request within the repository.\nExamples:\n  \"1347\"\n  \"42\""
+    }
+   },
+   "required": [
+    "repo",
+    "owner",
+    "pull_number"
+   ],
+   "additionalProperties": false,
+   "$schema": "http://json-schema.org/draft-07/schema#"
+  },
+  "execution": {
+   "task_support": "forbidden"
+  },
+  "output_schema": null,
+  "icons": null,
+  "annotations": {
+   "title": "List reviews for a pull request",
+   "read_only_hint": true,
+   "destructive_hint": false,
+   "idempotent_hint": false,
+   "open_world_hint": true
+  },
+  "meta": null
+ },
+ {
+  "name": "GITHUB_SEARCH_CODE",
+  "title": null,
+  "description": "Searches code file contents and paths on the default branch of GitHub repositories using a query string; searches only files under 384KB, returns max 1000 results by best match, and is optimized for precision.",
+  "input_schema": {
+   "type": "object",
+   "properties": {
+    "q": {
+     "type": "string",
+     "description": "Code search query, including keywords and qualifiers (e.g., `language:python`, `user:octocat`, `repo:owner/repo`). For full syntax and qualifiers, see GitHub docs: [Constructing a search query](https://docs.github.com/rest/search/search#constructing-a-search-query) and [code search qualifiers](https://docs.github.com/search-github/searching-on-github/searching-code).\nExamples:\n  \"HelloWorld in:file language:python\"\n  \"user:octocat repo:hello-world extension:js\"\n  \"form path:/app/models language:ruby\""
+    },
+    "page": {
+     "type": "integer",
+     "description": "Page number for results. For pagination details, see GitHub docs: [Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api).\nExamples:\n  \"1\"\n  \"2\"\n  \"10\"",
+     "default": 1
+    },
+    "sort": {
+     "type": "string",
+     "enum": [
+      "indexed",
+      "updated"
+     ],
+     "description": "DEPRECATED. Valid: 'indexed' (sorts by last indexed time) or 'updated' (sorts by last updated time). If unspecified, results sorted by best match. Docs: [ranking search results](https://docs.github.com/rest/search/search#ranking-search-results).\nExamples:\n  \"indexed\"\n  \"updated\""
+    },
+    "order": {
+     "type": "string",
+     "enum": [
+      "desc",
+      "asc"
+     ],
+     "description": "DEPRECATED. Order ('asc' or 'desc') for results; effective only if `sort` is specified. Docs: [ranking search results](https://docs.github.com/rest/search/search#ranking-search-results).\nExamples:\n  \"desc\"\n  \"asc\"",
+     "default": "desc"
+    },
+    "per_page": {
+     "type": "integer",
+     "description": "Results per page (max 100). For pagination details, see GitHub docs: [Using pagination in the REST API](https://docs.github.com/rest/using-the-rest-api/using-pagination-in-the-rest-api).\nExamples:\n  \"30\"\n  \"50\"\n  \"100\"",
+     "default": 30
+    }
+   },
+   "required": [
+    "q"
+   ],
+   "additionalProperties": false,
+   "$schema": "http://json-schema.org/draft-07/schema#"
+  },
+  "execution": {
+   "task_support": "forbidden"
+  },
+  "output_schema": null,
+  "icons": null,
+  "annotations": {
+   "title": "Search code",
+   "read_only_hint": true,
+   "destructive_hint": false,
+   "idempotent_hint": false,
+   "open_world_hint": true
+  },
+  "meta": null
+ },
+ {
+  "name": "GITHUB_SEARCH_ISSUES_AND_PULL_REQUESTS",
+  "title": null,
+  "description": "Searches GitHub for issues and pull requests. Supports keywords, qualifiers (repo:, org:, user:, state:, label:, author:, assignee:, mentions:, etc.), and type filters (is:issue, is:pr). Type filters cannot be used alone - they must be combined with at least one keyword or other qualifier. All other qualifiers work independently. The @me shorthand (e.g., assignee:@me, mentions:@me) is automatically resolved to your username. Logical operators (AND, OR, NOT) are supported but limited to a maximum of 5 operators total per query.",
+  "input_schema": {
+   "type": "object",
+   "properties": {
+    "q": {
+     "type": "string",
+     "maxLength": 256,
+     "description": "Search query using GitHub's search syntax. Supports keywords, qualifiers (repo:, org:, user:, state:, label:, author:, assignee:, mentions:, etc.), and type filters (is:issue, is:pr). IMPORTANT: Type filters (is:issue, is:pr) cannot be used alone - they must be combined with at least one keyword or other qualifier. All other qualifiers work independently (e.g., 'state:open', 'label:bug', 'assignee:octocat'). The @me shorthand (e.g., assignee:@me, mentions:@me, author:@me) can be used to reference the authenticated user. Logical operators (AND, OR, NOT) can be used to combine terms (maximum 5 operators total).\nExamples:\n  \"bug repo:octocat/Spoon-Knife is:issue is:open label:\\\"help wanted\\\"\"\n  \"assignee:@me is:issue state:open\"\n  \"state:open label:bug\"\n  \"bug is:pr\""
+    },
+    "page": {
+     "type": "integer",
+     "minimum": 1,
+     "description": "Page number for results.\nExamples:\n  \"1\"\n  \"2\"\n  \"5\"",
+     "default": 1
+    },
+    "sort": {
+     "type": "string",
+     "enum": [
+      "comments",
+      "reactions",
+      "reactions-+1",
+      "reactions--1",
+      "reactions-smile",
+      "reactions-thinking_face",
+      "reactions-heart",
+      "reactions-tada",
+      "interactions",
+      "created",
+      "updated"
+     ],
+     "description": "Field for sorting results. GitHub defaults to 'best match' if unspecified.\nExamples:\n  \"comments\"\n  \"created\"\n  \"updated\""
+    },
+    "order": {
+     "type": "string",
+     "enum": [
+      "desc",
+      "asc"
+     ],
+     "description": "Order for sorted results (ascending/descending). Effective only if `sort` is also provided.\nExamples:\n  \"desc\"\n  \"asc\"",
+     "default": "desc"
+    },
+    "per_page": {
+     "type": "integer",
+     "minimum": 1,
+     "maximum": 100,
+     "description": "Number of results per page.\nExamples:\n  \"30\"\n  \"50\"\n  \"100\"",
+     "default": 30
+    },
+    "response_detail": {
+     "type": "string",
+     "enum": [
+      "minimal",
+      "full"
+     ],
+     "description": "Level of detail in the response. 'minimal' (default) returns an optimized response for AI agents. 'full' returns the complete GitHub API response.\nExamples:\n  \"minimal\"\n  \"full\"",
+     "default": "minimal"
+    }
+   },
+   "required": [
+    "q"
+   ],
+   "additionalProperties": false,
+   "$schema": "http://json-schema.org/draft-07/schema#"
+  },
+  "execution": {
+   "task_support": "forbidden"
+  },
+  "output_schema": null,
+  "icons": null,
+  "annotations": {
+   "title": "Search issues and pull requests",
+   "read_only_hint": true,
+   "destructive_hint": false,
+   "idempotent_hint": true,
+   "open_world_hint": true
+  },
+  "meta": null
+ },
+ {
+  "name": "GITHUB_SEARCH_REPOSITORIES",
+  "title": null,
+  "description": "Searches GitHub repositories using a flexible query (keywords, qualifiers) with sorting, ordering, and pagination. IMPORTANT: The 'q' parameter (search query) is REQUIRED and must always be provided.",
+  "input_schema": {
+   "type": "object",
+   "properties": {
+    "q": {
+     "type": "string",
+     "minLength": 1,
+     "description": "REQUIRED non-empty search query. Max 5 AND/OR/NOT operators. Qualifiers: `language:LANG`, `stars:N`, `stars:>N`, `forks:N`, `size:N` (KB), `topic:TOPIC`, `license:LICENSE`, `created:DATE`, `pushed:DATE`, `is:public|private`, `archived:true|false`, `in:name|description|readme`, `user:USERNAME`, `org:ORGNAME`. Must use real GitHub usernames/orgs (e.g., `user:octocat`), not placeholders. Queries with logical operators must include at least one plain keyword; `topic:solana OR topic:ethereum` fails, use `solana OR ethereum stars:>100` instead.\nExamples:\n  \"tensorflow language:python stars:>1000\"\n  \"topic:react stars:>=10000\"\n  \"machine learning in:readme language:python\"\n  \"user:octocat\"\n  \"solana OR ethereum stars:>100\""
+    },
+    "page": {
+     "type": "integer",
+     "description": "The page number for pagination of search results. Defaults to 1. Used in conjunction with `per_page` to fetch subsequent sets of results. See GitHub API documentation for more on pagination.\nExamples:\n  \"1\"\n  \"2\"\n  \"10\"",
+     "default": 1
+    },
+    "sort": {
+     "type": "string",
+     "enum": [
+      "stars",
+      "forks",
+      "help-wanted-issues",
+      "updated",
+      "created"
+     ],
+     "description": "Specifies the field to sort the search results by. Options include `stars`, `forks`, `help-wanted-issues`, `updated` (recency of update), or `created` (creation date). If not provided, results are sorted by GitHub's default 'best match' ranking.\nExamples:\n  \"stars\"\n  \"forks\"\n  \"help-wanted-issues\"\n  \"updated\"\n  \"created\""
+    },
+    "order": {
+     "type": "string",
+     "enum": [
+      "desc",
+      "asc"
+     ],
+     "description": "Determines the order of search results: `desc` for descending or `asc` for ascending. This parameter is only effective when `sort` is also specified. Defaults to `desc`.\nExamples:\n  \"desc\"\n  \"asc\"",
+     "default": "desc"
+    },
+    "per_page": {
+     "type": "integer",
+     "description": "The number of repository results to return per page. The maximum value is 100. Defaults to 30. See GitHub API documentation for more on pagination.\nExamples:\n  \"30\"\n  \"50\"\n  \"100\"",
+     "default": 30
+    }
+   },
+   "required": [
+    "q"
+   ],
+   "additionalProperties": false,
+   "$schema": "http://json-schema.org/draft-07/schema#"
+  },
+  "execution": {
+   "task_support": "forbidden"
+  },
+  "output_schema": null,
+  "icons": null,
+  "annotations": {
+   "title": "Search repositories",
+   "read_only_hint": true,
+   "destructive_hint": false,
+   "idempotent_hint": false,
+   "open_world_hint": true
+  },
+  "meta": null
+ },
+ {
+  "name": "GITHUB_UPDATE_AN_ISSUE",
+  "title": null,
+  "description": "Updates an existing GitHub issue's title, body, state, milestone, labels, or assignees; `state_reason` is only processed if `state` also changes, and use `null` or `[]` to clear applicable fields.",
+  "input_schema": {
+   "type": "object",
+   "properties": {
+    "body": {
+     "type": "string",
+     "description": "New issue body; send `null` to clear, omit to leave unchanged.\nExamples:\n  \"Updated details about the issue.\"\n  \"Steps to reproduce:\\n1. Do this\\n2. Do that\\nObserved behavior...\""
+    },
+    "repo": {
+     "type": "string",
+     "description": "Repository name, without the `.git` extension (case-insensitive).\nExamples:\n  \"Spoon-Knife\"\n  \"my-awesome-project\""
+    },
+    "owner": {
+     "type": "string",
+     "description": "Owner of the repository (case-insensitive).\nExamples:\n  \"octocat\"\n  \"my-organization\""
+    },
+    "state": {
+     "type": "string",
+     "enum": [
+      "open",
+      "closed"
+     ],
+     "description": "New issue state; omit to leave unchanged."
+    },
+    "title": {
+     "type": "string",
+     "description": "New issue title; send `null` to clear, omit to leave unchanged.\nExamples:\n  \"New title for issue\"\n  \"Bugfix: Solves critical problem X\""
+    },
+    "labels": {
+     "type": "array",
+     "items": {
+      "type": "string"
+     },
+     "description": "Replaces all existing labels. Send `[]` to remove all; omit to leave unchanged. Requires push access for changes.\nExamples:\n  [\"bug\",\"documentation\"]\n  [\"enhancement\"]\n  []"
+    },
+    "assignee": {
+     "type": "string",
+     "description": "DEPRECATED: Username to assign; use `assignees`. Send `null` to unassign, omit to leave unchanged.\nExample: \"octocat\""
+    },
+    "assignees": {
+     "type": "array",
+     "items": {
+      "type": "string"
+     },
+     "description": "Replaces all existing assignees. Send `[]` to remove all; omit to leave unchanged. Requires push access for changes.\nExamples:\n  [\"octocat\",\"hubot\"]\n  [\"monalisa\"]\n  []"
+    },
+    "milestone": {
+     "type": "string",
+     "description": "Milestone ID (as string) or title. Send `null` to clear; omit to leave unchanged. Numeric ID recommended.\nExamples:\n  \"1\"\n  \"Q3 Sprint\"\n  \"42\""
+    },
+    "issue_number": {
+     "type": "integer",
+     "description": "Unique number identifying the issue.\nExamples:\n  \"1347\"\n  \"42\""
+    },
+    "state_reason": {
+     "type": "string",
+     "enum": [
+      "completed",
+      "not_planned",
+      "reopened"
+     ],
+     "description": "Reason for state change, considered only if `state` also changes. Valid reasons depend on the new `state`."
+    }
+   },
+   "required": [
+    "repo",
+    "owner",
+    "issue_number"
+   ],
+   "additionalProperties": false,
+   "$schema": "http://json-schema.org/draft-07/schema#"
+  },
+  "execution": {
+   "task_support": "forbidden"
+  },
+  "output_schema": null,
+  "icons": null,
+  "annotations": {
+   "title": "Update an issue",
+   "read_only_hint": false,
+   "destructive_hint": false,
+   "idempotent_hint": false,
+   "open_world_hint": true
+  },
+  "meta": null
+ },
+ {
+  "name": "COMPOSIO_CHECK_ACTIVE_CONNECTION",
+  "title": null,
+  "description": "Checks if there is an active connection for a specific app. Input schema: { appName: string } where appName is one of: github. Output: { connected: boolean, connectedAccountId?: string }",
+  "input_schema": {
+   "type": "object",
+   "properties": {
+    "connected_account_id": {
+     "type": "string",
+     "description": "Specific connected account ID to check status for"
+    },
+    "toolkit": {
+     "type": "string",
+     "description": "Name of the toolkit to check\nExamples:\n  \"github\"\n  \"slack\"\n  \"hubspot\""
+    }
+   },
+   "additionalProperties": false,
+   "$schema": "http://json-schema.org/draft-07/schema#"
+  },
+  "execution": {
+   "task_support": "forbidden"
+  },
+  "output_schema": null,
+  "icons": null,
+  "annotations": {
+   "title": "Check active connection (deprecated)",
+   "read_only_hint": true,
+   "destructive_hint": false,
+   "idempotent_hint": false,
+   "open_world_hint": true
+  },
+  "meta": null
+ },
+ {
+  "name": "COMPOSIO_GET_REQUIRED_PARAMETERS",
+  "title": null,
+  "description": "Gets the required parameters for connecting to an app. Input schema: { appName: string } where appName is one of: github. Output: { parameters: Array<{ name: string, description: string, required: boolean, type: string }> }",
+  "input_schema": {
+   "type": "object",
+   "properties": {
+    "toolkit": {
+     "type": "string",
+     "description": "Name of the toolkit to analyze for authentication requirements. Returns parameters for API keys, OAuth credentials, or connection fields needed by initiate_connection.\nExamples:\n  \"github\"\n  \"slack\"\n  \"hubspot\"\n  \"exa\"\n  \"zendesk\"\n  \"sharepoint\""
+    }
+   },
+   "required": [
+    "toolkit"
+   ],
+   "additionalProperties": false,
+   "$schema": "http://json-schema.org/draft-07/schema#"
+  },
+  "execution": {
+   "task_support": "forbidden"
+  },
+  "output_schema": null,
+  "icons": null,
+  "annotations": {
+   "title": "Get required parameters for connection",
+   "read_only_hint": true,
+   "destructive_hint": false,
+   "idempotent_hint": false,
+   "open_world_hint": true
+  },
+  "meta": null
+ },
+ {
+  "name": "COMPOSIO_INITIATE_CONNECTION",
+  "title": null,
+  "description": "Initiates a new connection for an app. Input schema: { appName: string, parameters?: Record<string, any> } where appName is one of: github. Output: { success: boolean, message: string, redirectUrl?: string }",
+  "input_schema": {
+   "type": "object",
+   "properties": {
+    "parameters": {
+     "type": "object",
+     "properties": {},
+     "additionalProperties": true,
+     "description": "\n        Authentication parameters for the connection. Structure depends on auth type:\n        \n        API Key Auth: {\"generic_api_key\": \"your_key\"}\n        Bearer Token: {\"bearer_token\": \"your_token\"} or {\"access_token\": \"your_token\"}\n        Basic Auth: {\"username\": \"user\", \"password\": \"pass\"}\n        Custom OAuth: {\"client_id\": \"your_id\", \"client_secret\": \"your_secret\"}\n        Connection Fields: {\"subdomain\": \"your_subdomain\", \"site_name\": \"your_site\"} \n        \n        Examples:\n        - Exa: {\"generic_api_key\": \"your_exa_api_key\"}\n        - GitHub (token): {\"access_token\": \"ghp_xxxxx\"}\n        - Google Super (OAuth): {\"client_id\": \"xxx.apps.googleusercontent.com\", \"client_secret\": \"GOCSPX-xxx\"}\n        - SharePoint (hybrid): {\"client_id\": \"your_id\", \"client_secret\": \"your_secret\", \"site_name\": \"your_site\"}\n        - Zendesk (connection only): {\"subdomain\": \"your_subdomain\"}\n        \n        Leave empty {} for default OAuth flow (if supported by toolkit).\n        Use get_required_parameters action to see exact parameter names and requirements.\n        "
+    },
+    "toolkit": {
+     "type": "string",
+     "description": "Name of the toolkit to connect (e.g., 'gmail', 'exa', 'github', 'linear')"
+    }
+   },
+   "required": [
+    "toolkit"
+   ],
+   "additionalProperties": false,
+   "$schema": "http://json-schema.org/draft-07/schema#"
+  },
+  "execution": {
+   "task_support": "forbidden"
+  },
+  "output_schema": null,
+  "icons": null,
+  "annotations": {
+   "title": "Initiate connection",
+   "read_only_hint": false,
+   "destructive_hint": false,
+   "idempotent_hint": false,
+   "open_world_hint": true
+  },
+  "meta": null
+ }
+]

@@ -1,0 +1,15 @@
+{
+  "best_version_id": "0d6e62afe17a",
+  "best_score_val": 0.0,
+  "candidates": [
+    {
+      "version_id": "0d6e62afe17a",
+      "val_score": 0.0,
+      "parents": [
+        null
+      ]
+    }
+  ],
+  "reflection_calls": 0,
+  "reflection_cost_usd": 0.0
+}

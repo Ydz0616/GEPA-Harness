@@ -1,0 +1,7 @@
+.env
+env/experiment.env
+__pycache__/
+*.pyc
+node_modules/
+report/body.html
+report/pw/*.png

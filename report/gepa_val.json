@@ -1,0 +1,131 @@
+{
+ "ids": [
+  "qa-dwave-cloud-client-01",
+  "qa-dwave-cloud-client-04",
+  "qa-dwave-cloud-client-07",
+  "qa-dwave-cloud-client-09",
+  "qa-dwave-cloud-client-10",
+  "qa-sanic-04",
+  "qa-sanic-06",
+  "qa-sanic-07",
+  "qa-sanic-08",
+  "qa-sanic-09"
+ ],
+ "stats": {
+  "v0": {
+   "nq": 10,
+   "n": 30,
+   "q": 0.897,
+   "cost": 0.107,
+   "turns": 12.267,
+   "tools": 15.3,
+   "lat": 90.6,
+   "anslen": 4509,
+   "per": {
+    "qa-dwave-cloud-client-01": 0.9,
+    "qa-dwave-cloud-client-07": 0.96,
+    "qa-dwave-cloud-client-04": 0.967,
+    "qa-dwave-cloud-client-10": 0.827,
+    "qa-dwave-cloud-client-09": 0.88,
+    "qa-sanic-04": 0.893,
+    "qa-sanic-06": 0.907,
+    "qa-sanic-07": 0.86,
+    "qa-sanic-08": 0.847,
+    "qa-sanic-09": 0.927
+   }
+  },
+  "c1": {
+   "nq": 10,
+   "n": 10,
+   "q": 0.936,
+   "cost": 0.072,
+   "turns": 13.1,
+   "tools": 16.3,
+   "lat": 118.2,
+   "anslen": 8047,
+   "per": {
+    "qa-dwave-cloud-client-01": 1.0,
+    "qa-dwave-cloud-client-04": 0.98,
+    "qa-dwave-cloud-client-07": 0.96,
+    "qa-dwave-cloud-client-09": 0.78,
+    "qa-dwave-cloud-client-10": 0.92,
+    "qa-sanic-04": 0.88,
+    "qa-sanic-06": 0.98,
+    "qa-sanic-07": 0.94,
+    "qa-sanic-08": 0.92,
+    "qa-sanic-09": 1.0
+   }
+  },
+  "c2": {
+   "nq": 10,
+   "n": 10,
+   "q": 0.956,
+   "cost": 0.055,
+   "turns": 11.6,
+   "tools": 16.0,
+   "lat": 123.5,
+   "anslen": 7854,
+   "per": {
+    "qa-dwave-cloud-client-01": 0.94,
+    "qa-dwave-cloud-client-04": 1.0,
+    "qa-dwave-cloud-client-07": 1.0,
+    "qa-dwave-cloud-client-09": 1.0,
+    "qa-dwave-cloud-client-10": 0.96,
+    "qa-sanic-04": 0.92,
+    "qa-sanic-06": 1.0,
+    "qa-sanic-07": 0.86,
+    "qa-sanic-08": 0.9,
+    "qa-sanic-09": 0.98
+   }
+  },
+  "c3": {
+   "nq": 10,
+   "n": 10,
+   "q": 0.948,
+   "cost": 0.086,
+   "turns": 17.4,
+   "tools": 21.5,
+   "lat": 158.6,
+   "anslen": 8334,
+   "per": {
+    "qa-dwave-cloud-client-01": 0.98,
+    "qa-dwave-cloud-client-04": 0.96,
+    "qa-dwave-cloud-client-07": 0.96,
+    "qa-dwave-cloud-client-09": 0.98,
+    "qa-dwave-cloud-client-10": 0.96,
+    "qa-sanic-04": 1.0,
+    "qa-sanic-06": 0.98,
+    "qa-sanic-07": 0.94,
+    "qa-sanic-08": 0.78,
+    "qa-sanic-09": 0.94
+   }
+  },
+  "c4": {
+   "nq": 10,
+   "n": 10,
+   "q": 0.914,
+   "cost": 0.058,
+   "turns": 13.1,
+   "tools": 16.2,
+   "lat": 107.8,
+   "anslen": 6808,
+   "per": {
+    "qa-dwave-cloud-client-07": 0.96,
+    "qa-dwave-cloud-client-10": 0.76,
+    "qa-sanic-07": 0.88,
+    "qa-dwave-cloud-client-01": 0.98,
+    "qa-sanic-06": 0.96,
+    "qa-sanic-08": 0.96,
+    "qa-dwave-cloud-client-04": 0.74,
+    "qa-dwave-cloud-client-09": 1.0,
+    "qa-sanic-04": 0.92,
+    "qa-sanic-09": 0.98
+   }
+  },
+  "c5_partial": {
+   "qa-dwave-cloud-client-01": 0.94,
+   "qa-dwave-cloud-client-04": 0.9,
+   "qa-dwave-cloud-client-07": 0.96
+  }
+ }
+}

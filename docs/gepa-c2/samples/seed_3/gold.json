@@ -1,0 +1,48 @@
+{
+  "mismatches": [
+    {
+      "expense_id": "EXP-003-009",
+      "kind": "missing_in_ledger"
+    },
+    {
+      "expense_id": "EXP-003-020",
+      "kind": "category_diff"
+    },
+    {
+      "expense_id": "EXP-003-033",
+      "kind": "amount_diff"
+    },
+    {
+      "expense_id": "EXP-003-015",
+      "kind": "missing_in_ledger"
+    },
+    {
+      "expense_id": "EXP-003-042",
+      "kind": "category_diff"
+    },
+    {
+      "expense_id": "EXP-003-018",
+      "kind": "amount_diff"
+    },
+    {
+      "expense_id": "EXP-003-016",
+      "kind": "missing_in_ledger"
+    },
+    {
+      "expense_id": "EXP-003-021",
+      "kind": "category_diff"
+    }
+  ],
+  "report_total": 23076.78,
+  "ledger_total": 21551.22,
+  "mismatch_ids": [
+    "EXP-003-009",
+    "EXP-003-015",
+    "EXP-003-016",
+    "EXP-003-018",
+    "EXP-003-020",
+    "EXP-003-021",
+    "EXP-003-033",
+    "EXP-003-042"
+  ]
+}

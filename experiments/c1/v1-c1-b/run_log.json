@@ -1,0 +1,170 @@
+[
+  {
+    "i": 0,
+    "iteration_id": "1e0830b9",
+    "selected_program_candidate": 0,
+    "subsample_ids": [
+      7,
+      5,
+      1
+    ],
+    "n_tasks": 1,
+    "tasks": [
+      {
+        "parent_idx": 0,
+        "subsample_ids": [
+          7,
+          5,
+          1
+        ]
+      }
+    ]
+  },
+  {
+    "i": 1,
+    "iteration_id": "831a36ea",
+    "selected_program_candidate": 0,
+    "subsample_ids": [
+      3,
+      4,
+      2
+    ],
+    "n_tasks": 1,
+    "tasks": [
+      {
+        "parent_idx": 0,
+        "subsample_ids": [
+          3,
+          4,
+          2
+        ]
+      }
+    ]
+  },
+  {
+    "i": 2,
+    "iteration_id": "3b888983",
+    "selected_program_candidate": 0,
+    "subsample_ids": [
+      0,
+      6,
+      6
+    ],
+    "n_tasks": 1,
+    "tasks": [
+      {
+        "parent_idx": 0,
+        "subsample_ids": [
+          0,
+          6,
+          6
+        ]
+      }
+    ]
+  },
+  {
+    "i": 3,
+    "iteration_id": "afcd66a8",
+    "selected_program_candidate": 0,
+    "subsample_ids": [
+      6,
+      7,
+      0
+    ],
+    "n_tasks": 1,
+    "tasks": [
+      {
+        "parent_idx": 0,
+        "subsample_ids": [
+          6,
+          7,
+          0
+        ]
+      }
+    ]
+  },
+  {
+    "i": 4,
+    "iteration_id": "71f13a30",
+    "selected_program_candidate": 0,
+    "subsample_ids": [
+      5,
+      2,
+      1
+    ],
+    "n_tasks": 1,
+    "tasks": [
+      {
+        "parent_idx": 0,
+        "subsample_ids": [
+          5,
+          2,
+          1
+        ]
+      }
+    ]
+  },
+  {
+    "i": 5,
+    "iteration_id": "7567dff9",
+    "selected_program_candidate": 0,
+    "subsample_ids": [
+      4,
+      3,
+      3
+    ],
+    "n_tasks": 1,
+    "tasks": [
+      {
+        "parent_idx": 0,
+        "subsample_ids": [
+          4,
+          3,
+          3
+        ]
+      }
+    ]
+  },
+  {
+    "i": 6,
+    "iteration_id": "fab97e27",
+    "selected_program_candidate": 0,
+    "subsample_ids": [
+      3,
+      4,
+      1
+    ],
+    "n_tasks": 1,
+    "tasks": [
+      {
+        "parent_idx": 0,
+        "subsample_ids": [
+          3,
+          4,
+          1
+        ]
+      }
+    ]
+  },
+  {
+    "i": 7,
+    "iteration_id": "dd68643a",
+    "selected_program_candidate": 0,
+    "subsample_ids": [
+      6,
+      5,
+      0
+    ],
+    "n_tasks": 1,
+    "tasks": [
+      {
+        "parent_idx": 0,
+        "subsample_ids": [
+          6,
+          5,
+          0
+        ]
+      }
+    ]
+  }
+]

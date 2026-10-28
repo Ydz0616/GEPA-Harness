@@ -1,0 +1,22 @@
+{
+  "best_version_id": "0b131d92e8d8",
+  "best_score_val": 1.0,
+  "candidates": [
+    {
+      "version_id": "0d6e62afe17a",
+      "val_score": 0.6666666666666666,
+      "parents": [
+        null
+      ]
+    },
+    {
+      "version_id": "0b131d92e8d8",
+      "val_score": 1.0,
+      "parents": [
+        0
+      ]
+    }
+  ],
+  "reflection_calls": 1,
+  "reflection_cost_usd": 0.0043047
+}

@@ -1,0 +1,23 @@
+Iteration 0: Base program full valset score: 0.8966666666666667 over 10 / 10 examples
+Iteration 1: Selected program 0 score: 0.8966666666666667
+Iteration 1: Proposed new text for instruction: 
+Iteration 1: New subsample score 2.42 is not better than old score 2.44, skipping
+Iteration 2: Selected program 0 score: 0.8966666666666667
+Iteration 2: Proposed new text for instruction: 
+Iteration 2: Accepted candidate (subsample score 2.78 -> 2.98); running full eval.
+Iteration 2: Valset score for new program: 0.89 (coverage 10 / 10)
+Iteration 2: Val aggregate for new program: 0.89
+Iteration 2: Individual valset scores for new program: {0: 0.88, 1: 0.98, 2: 0.86, 3: 0.98, 4: 0.82, 5: 0.82, 6: 0.86, 7: 0.84, 8: 0.98, 9: 0.88}
+Iteration 2: New valset pareto front scores: {0: 0.9, 1: 0.98, 2: 0.96, 3: 0.98, 4: 0.8266666666666667, 5: 0.8933333333333334, 6: 0.9066666666666667, 7: 0.86, 8: 0.98, 9: 0.9266666666666667}
+Iteration 2: Valset pareto front aggregate score: 0.9213333333333333
+Iteration 2: Updated valset pareto front programs: {0: {0}, 1: {1}, 2: {0}, 3: {1}, 4: {0}, 5: {0}, 6: {0}, 7: {0}, 8: {1}, 9: {0}}
+Iteration 2: Best valset aggregate score so far: 0.8966666666666667
+Iteration 2: Best program as per aggregate score on valset: 0
+Iteration 2: Best score on valset: 0.8966666666666667
+Iteration 2: Linear pareto front program index: 0
+Iteration 2: New program candidate index: 1
+Iteration 3: Selected program 0 score: 0.8966666666666667
+Iteration 3: Proposed new text for instruction: 
+Iteration 3: New subsample score 2.84 is not better than old score 2.96, skipping
+Iteration 4: Selected program 0 score: 0.8966666666666667
+Iteration 4: Proposed new text for instruction: 

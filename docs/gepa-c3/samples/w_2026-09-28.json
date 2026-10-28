@@ -1,0 +1,395 @@
+{
+  "repo": "openai/openai-agents-python",
+  "window": [
+    "2026-09-28",
+    "2026-10-05"
+  ],
+  "issues_opened": [
+    {
+      "number": 5213,
+      "labels": [],
+      "title": "Streamed runs swallow consumer cancellation and skip run cleanup while a parallel input guardrail is running"
+    },
+    {
+      "number": 5214,
+      "labels": [],
+      "title": "OpenAIResponsesCompactionSession: is_openai_model_name() rejects gateway/proxy-namespaced model names (e.g. LiteLLM's <provider>/<model> convention)"
+    },
+    {
+      "number": 5228,
+      "labels": [],
+      "title": "OpenAIChatCompletionsModel: option to keep image content in tool outputs (preserve_tool_output_all_content)"
+    },
+    {
+      "number": 5229,
+      "labels": [],
+      "title": "Non-streaming Chat Completions run fails when provider usage has null token counts (streaming handles it since #1179)"
+    },
+    {
+      "number": 5239,
+      "labels": [],
+      "title": "tool_use_behavior ignores tools that already ran in the turn when a run resumes after an approval"
+    },
+    {
+      "number": 5254,
+      "labels": [],
+      "title": "fix(schema): decode URI fragments before JSON Pointer traversal"
+    },
+    {
+      "number": 5257,
+      "labels": [],
+      "title": "Nullable token counts still raise on three usage paths #5238 did not cover"
+    },
+    {
+      "number": 5275,
+      "labels": [],
+      "title": "gpt-4o-transcribe is being retired (config.py)"
+    },
+    {
+      "number": 5281,
+      "labels": [],
+      "title": "Example proposal: typed query-dependent retrieval before MCP tool filtering"
+    },
+    {
+      "number": 5282,
+      "labels": [],
+      "title": "Example: checked tool authorization with a Semaprax input guardrail"
+    },
+    {
+      "number": 5287,
+      "labels": [
+        "question"
+      ],
+      "title": "When will GPT-Live-1 model integrated ?"
+    },
+    {
+      "number": 5288,
+      "labels": [
+        "enhancement"
+      ],
+      "title": "Provider-neutral institutional authority evidence for tool approvals and execution"
+    },
+    {
+      "number": 5289,
+      "labels": [
+        "feature:tracing"
+      ],
+      "title": "RunConfig(tracing_disabled=True) still records the run spans inside a caller trace()"
+    },
+    {
+      "number": 5290,
+      "labels": [
+        "feature:tracing"
+      ],
+      "title": "After an approval, the resumed run records the approved tool span outside the agent span"
+    },
+    {
+      "number": 5291,
+      "labels": [],
+      "title": "Trace exporter posts spans to api.openai.com even when OPENAI_BASE_URL points elsewhere"
+    },
+    {
+      "number": 5292,
+      "labels": [],
+      "title": "Example for discovering a service's MCP server URL from just the domain"
+    },
+    {
+      "number": 5293,
+      "labels": [],
+      "title": "Document `git` as a system requirement (sandbox Git repos, test suite)"
+    }
+  ],
+  "prs_merged": [
+    {
+      "number": 4831,
+      "author": "coderdailyone",
+      "title": "fix(sandbox): normalize UnixLocal snapshot special files and symlinks"
+    },
+    {
+      "number": 4834,
+      "author": "coderdailyone",
+      "title": "fix(sandbox): make Docker persist_workspace archives restorable by hydrate_workspace"
+    },
+    {
+      "number": 4890,
+      "author": "wolfgang-aura",
+      "title": "fix: keep the file when apply_patch does a case-only rename"
+    },
+    {
+      "number": 4893,
+      "author": "ayaangazali",
+      "title": "fix(sandbox): scope exclusive Add File creation to UnixLocal"
+    },
+    {
+      "number": 5208,
+      "author": "jbeckwith-oai",
+      "title": "fix(sandbox): preserve symlink targets during snapshot restore"
+    },
+    {
+      "number": 5209,
+      "author": "jbeckwith-oai",
+      "title": "fix: refresh encrypted session visibility before compaction"
+    },
+    {
+      "number": 5210,
+      "author": "jbeckwith-oai",
+      "title": "fix(sandbox): bootstrap Docker workspace before removal binding"
+    },
+    {
+      "number": 5211,
+      "author": "jbeckwith-oai",
+      "title": "fix: reject premature Chat Completions stream EOF"
+    },
+    {
+      "number": 5212,
+      "author": "jbeckwith-oai",
+      "title": "fix: preserve function tool Annotated constraints"
+    },
+    {
+      "number": 5215,
+      "author": "jbeckwith-oai",
+      "title": "docs: clarify retry-delay security threat model"
+    },
+    {
+      "number": 5216,
+      "author": "jbeckwith-oai",
+      "title": "fix: discard previous stream event aliases on model timeout"
+    },
+    {
+      "number": 5217,
+      "author": "jbeckwith-oai",
+      "title": "fix(mcp): escape duplicate tool names in diagnostics"
+    },
+    {
+      "number": 5218,
+      "author": "jbeckwith-oai",
+      "title": "fix(examples): prevent auto-running the local Temporal shell workflow"
+    },
+    {
+      "number": 5219,
+      "author": "jbeckwith-oai",
+      "title": "fix: escape terminal controls in result diagnostics"
+    },
+    {
+      "number": 5220,
+      "author": "jbeckwith-oai",
+      "title": "fix(ci): validate release source before building distributions"
+    },
+    {
+      "number": 5221,
+      "author": "jbeckwith-oai",
+      "title": "fix: reject ambiguous canonical Docker removal paths"
+    },
+    {
+      "number": 5222,
+      "author": "jbeckwith-oai",
+      "title": "ci: configure release-please with GitHub Actions authentication"
+    },
+    {
+      "number": 5223,
+      "author": "jbeckwith-oai",
+      "title": "docs: clarify descriptions for variadic tool parameters"
+    },
+    {
+      "number": 5224,
+      "author": "jbeckwith-oai",
+      "title": "fix: preserve streamed cancellation and pending guardrail cleanup"
+    },
+    {
+      "number": 5225,
+      "author": "jbeckwith-oai",
+      "title": "fix(sessions): accept namespaced compaction model names"
+    },
+    {
+      "number": 5227,
+      "author": "jbeckwith-oai",
+      "title": "ci: open release PRs ready for review"
+    },
+    {
+      "number": 5230,
+      "author": "jbeckwith-oai",
+      "title": "ci: automate release candidate preparation and review"
+    },
+    {
+      "number": 5238,
+      "author": "jbeckwith-oai",
+      "title": "fix: normalize nullable Chat Completions token counts"
+    },
+    {
+      "number": 5240,
+      "author": "jbeckwith-oai",
+      "title": "fix: preserve completed tool results when resuming approvals"
+    },
+    {
+      "number": 5242,
+      "author": "jbeckwith-oai",
+      "title": "build(ci): run release assessments without expanding App permissions"
+    },
+    {
+      "number": 5243,
+      "author": "jbeckwith-oai",
+      "title": "chore(deps): raise dependency minimums in Dependabot updates"
+    },
+    {
+      "number": 5253,
+      "author": "jbeckwith-oai",
+      "title": "build(ci): pace release assessments within thirty minutes"
+    },
+    {
+      "number": 5255,
+      "author": "jbeckwith-oai",
+      "title": "fix: migrate Vercel sandboxes to the owned provider client"
+    },
+    {
+      "number": 5258,
+      "author": "jbeckwith-oai",
+      "title": "build(ci): always refresh release pull requests"
+    },
+    {
+      "number": 5259,
+      "author": "jbeckwith-oai",
+      "title": "build(ci): reserve time for release assessment timeout cleanup"
+    },
+    {
+      "number": 5260,
+      "author": "jbeckwith-oai",
+      "title": "fix: normalize nullable token counts in remaining provider paths"
+    },
+    {
+      "number": 5261,
+      "author": "jbeckwith-oai",
+      "title": "build(ci): isolate unrelated release candidate events"
+    },
+    {
+      "number": 5262,
+      "author": "jbeckwith-oai",
+      "title": "fix(ci): update and group CodeQL actions together"
+    },
+    {
+      "number": 5263,
+      "author": "jbeckwith-oai",
+      "title": "build(ci): run required checks for merge queue"
+    },
+    {
+      "number": 5264,
+      "author": "jbeckwith-oai",
+      "title": "build(ci): skip irrelevant packaging jobs before runner allocation"
+    },
+    {
+      "number": 5272,
+      "author": "jbeckwith-oai",
+      "title": "fix(schema): decode URI fragments before pointer traversal"
+    },
+    {
+      "number": 5274,
+      "author": "jbeckwith-oai",
+      "title": "build(release): use local maintainer review with release-please"
+    },
+    {
+      "number": 5276,
+      "author": "jbeckwith-oai",
+      "title": "fix: use gpt-transcribe as the default voice STT model"
+    },
+    {
+      "number": 5277,
+      "author": "seratch",
+      "title": "test: restrict default runs to OpenAI credentials"
+    },
+    {
+      "number": 5278,
+      "author": "jbeckwith-oai",
+      "title": "fix: restore release tests and refresh required readiness check"
+    },
+    {
+      "number": 5283,
+      "author": "jbeckwith-oai",
+      "title": "fix(examples): render realtime tool events as text"
+    },
+    {
+      "number": 5294,
+      "author": "jbeckwith-oai",
+      "title": "fix: trace approved tools inside the resumed agent span"
+    },
+    {
+      "number": 5295,
+      "author": "jbeckwith-oai",
+      "title": "docs: document Git system requirements"
+    },
+    {
+      "number": 5296,
+      "author": "jbeckwith-oai",
+      "title": "fix: honor Runner tracing opt-out inside caller traces"
+    },
+    {
+      "number": 5297,
+      "author": "jbeckwith-oai",
+      "title": "docs: clarify where to find remote MCP endpoints"
+    }
+  ],
+  "issue_numbers": [
+    5213,
+    5214,
+    5228,
+    5229,
+    5239,
+    5254,
+    5257,
+    5275,
+    5281,
+    5282,
+    5287,
+    5288,
+    5289,
+    5290,
+    5291,
+    5292,
+    5293
+  ],
+  "pr_numbers": [
+    4831,
+    4834,
+    4890,
+    4893,
+    5208,
+    5209,
+    5210,
+    5211,
+    5212,
+    5215,
+    5216,
+    5217,
+    5218,
+    5219,
+    5220,
+    5221,
+    5222,
+    5223,
+    5224,
+    5225,
+    5227,
+    5230,
+    5238,
+    5240,
+    5242,
+    5243,
+    5253,
+    5255,
+    5258,
+    5259,
+    5260,
+    5261,
+    5262,
+    5263,
+    5264,
+    5272,
+    5274,
+    5276,
+    5277,
+    5278,
+    5283,
+    5294,
+    5295,
+    5296,
+    5297
+  ]
+}

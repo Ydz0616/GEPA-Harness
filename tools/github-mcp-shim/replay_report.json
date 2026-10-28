@@ -1,0 +1,425 @@
+{
+  "server_url": "http://127.0.0.1:8765/mcp?user_id=devinlive",
+  "reference": "/home/ubuntu/improve-runs/ghshim/composio_raw.jsonl",
+  "comparison": "full CallToolResult; JSON text bodies are parsed for JSON-equality",
+  "reference_record_counts": {
+    "recorded_pairs": 25,
+    "probe_control": 1
+  },
+  "selection": "GITHUB_GET_REPOSITORY_CONTENT",
+  "mode": "authenticated",
+  "token_available_via_gh_cli_or_environment": true,
+  "rate_limits_before_replay": {
+    "core": {
+      "limit": 5000,
+      "used": 13,
+      "remaining": 4987,
+      "reset": 1792618140
+    },
+    "search": {
+      "limit": 30,
+      "used": 0,
+      "remaining": 30,
+      "reset": 1792616131
+    },
+    "code_search": {
+      "limit": 10,
+      "used": 0,
+      "remaining": 10,
+      "reset": 1792616131
+    }
+  },
+  "skipped_record_counts": {},
+  "tool_list_match": true,
+  "mismatched_tool_schemas": [],
+  "remote_tool_count": 29,
+  "tools": {
+    "GITHUB_CHECK_IF_PULL_REQUEST_HAS_BEEN_MERGED": {
+      "n": 0,
+      "exact": 0,
+      "json_equal": 0,
+      "differs": 0,
+      "drift": 0,
+      "mismatch": 0,
+      "call_errors": 0,
+      "top_differing_paths": []
+    },
+    "GITHUB_CREATE_AN_ISSUE": {
+      "n": 0,
+      "exact": 0,
+      "json_equal": 0,
+      "differs": 0,
+      "drift": 0,
+      "mismatch": 0,
+      "call_errors": 0,
+      "top_differing_paths": []
+    },
+    "GITHUB_CREATE_AN_ISSUE_COMMENT": {
+      "n": 0,
+      "exact": 0,
+      "json_equal": 0,
+      "differs": 0,
+      "drift": 0,
+      "mismatch": 0,
+      "call_errors": 0,
+      "top_differing_paths": []
+    },
+    "GITHUB_FIND_PULL_REQUESTS": {
+      "n": 0,
+      "exact": 0,
+      "json_equal": 0,
+      "differs": 0,
+      "drift": 0,
+      "mismatch": 0,
+      "call_errors": 0,
+      "top_differing_paths": []
+    },
+    "GITHUB_GET_A_BRANCH": {
+      "n": 0,
+      "exact": 0,
+      "json_equal": 0,
+      "differs": 0,
+      "drift": 0,
+      "mismatch": 0,
+      "call_errors": 0,
+      "top_differing_paths": []
+    },
+    "GITHUB_GET_A_COMMIT": {
+      "n": 0,
+      "exact": 0,
+      "json_equal": 0,
+      "differs": 0,
+      "drift": 0,
+      "mismatch": 0,
+      "call_errors": 0,
+      "top_differing_paths": []
+    },
+    "GITHUB_GET_AN_ISSUE": {
+      "n": 1,
+      "exact": 0,
+      "json_equal": 0,
+      "differs": 1,
+      "drift": 1,
+      "mismatch": 0,
+      "call_errors": 0,
+      "top_differing_paths": [
+        {
+          "path": "$.content[0].text.log_id",
+          "count": 1
+        }
+      ]
+    },
+    "GITHUB_GET_A_PULL_REQUEST": {
+      "n": 2,
+      "exact": 0,
+      "json_equal": 0,
+      "differs": 2,
+      "drift": 2,
+      "mismatch": 0,
+      "call_errors": 0,
+      "top_differing_paths": [
+        {
+          "path": "$.content[0].text.log_id",
+          "count": 2
+        }
+      ]
+    },
+    "GITHUB_GET_A_REPOSITORY": {
+      "n": 0,
+      "exact": 0,
+      "json_equal": 0,
+      "differs": 0,
+      "drift": 0,
+      "mismatch": 0,
+      "call_errors": 0,
+      "top_differing_paths": []
+    },
+    "GITHUB_GET_A_REPOSITORY_README": {
+      "n": 0,
+      "exact": 0,
+      "json_equal": 0,
+      "differs": 0,
+      "drift": 0,
+      "mismatch": 0,
+      "call_errors": 0,
+      "top_differing_paths": []
+    },
+    "GITHUB_GET_A_TREE": {
+      "n": 0,
+      "exact": 0,
+      "json_equal": 0,
+      "differs": 0,
+      "drift": 0,
+      "mismatch": 0,
+      "call_errors": 0,
+      "top_differing_paths": []
+    },
+    "GITHUB_GET_REPOSITORY_CONTENT": {
+      "n": 1,
+      "exact": 0,
+      "json_equal": 0,
+      "differs": 1,
+      "drift": 1,
+      "mismatch": 0,
+      "call_errors": 0,
+      "top_differing_paths": [
+        {
+          "path": "$.content[0].text.log_id",
+          "count": 1
+        }
+      ]
+    },
+    "GITHUB_LIST_BRANCHES": {
+      "n": 0,
+      "exact": 0,
+      "json_equal": 0,
+      "differs": 0,
+      "drift": 0,
+      "mismatch": 0,
+      "call_errors": 0,
+      "top_differing_paths": []
+    },
+    "GITHUB_LIST_COMMITS": {
+      "n": 0,
+      "exact": 0,
+      "json_equal": 0,
+      "differs": 0,
+      "drift": 0,
+      "mismatch": 0,
+      "call_errors": 0,
+      "top_differing_paths": []
+    },
+    "GITHUB_LIST_COMMITS_ON_A_PULL_REQUEST": {
+      "n": 0,
+      "exact": 0,
+      "json_equal": 0,
+      "differs": 0,
+      "drift": 0,
+      "mismatch": 0,
+      "call_errors": 0,
+      "top_differing_paths": []
+    },
+    "GITHUB_LIST_ORGANIZATION_REPOSITORIES": {
+      "n": 0,
+      "exact": 0,
+      "json_equal": 0,
+      "differs": 0,
+      "drift": 0,
+      "mismatch": 0,
+      "call_errors": 0,
+      "top_differing_paths": []
+    },
+    "GITHUB_LIST_PULL_REQUESTS": {
+      "n": 0,
+      "exact": 0,
+      "json_equal": 0,
+      "differs": 0,
+      "drift": 0,
+      "mismatch": 0,
+      "call_errors": 0,
+      "top_differing_paths": []
+    },
+    "GITHUB_LIST_PULL_REQUESTS_FILES": {
+      "n": 0,
+      "exact": 0,
+      "json_equal": 0,
+      "differs": 0,
+      "drift": 0,
+      "mismatch": 0,
+      "call_errors": 0,
+      "top_differing_paths": []
+    },
+    "GITHUB_LIST_REPOSITORIES_FOR_THE_AUTHENTICATED_USER": {
+      "n": 0,
+      "exact": 0,
+      "json_equal": 0,
+      "differs": 0,
+      "drift": 0,
+      "mismatch": 0,
+      "call_errors": 0,
+      "top_differing_paths": []
+    },
+    "GITHUB_LIST_REPOSITORY_ISSUES": {
+      "n": 0,
+      "exact": 0,
+      "json_equal": 0,
+      "differs": 0,
+      "drift": 0,
+      "mismatch": 0,
+      "call_errors": 0,
+      "top_differing_paths": []
+    },
+    "GITHUB_LIST_REVIEW_COMMENTS_ON_A_PULL_REQUEST": {
+      "n": 0,
+      "exact": 0,
+      "json_equal": 0,
+      "differs": 0,
+      "drift": 0,
+      "mismatch": 0,
+      "call_errors": 0,
+      "top_differing_paths": []
+    },
+    "GITHUB_LIST_REVIEWS_FOR_A_PULL_REQUEST": {
+      "n": 0,
+      "exact": 0,
+      "json_equal": 0,
+      "differs": 0,
+      "drift": 0,
+      "mismatch": 0,
+      "call_errors": 0,
+      "top_differing_paths": []
+    },
+    "GITHUB_SEARCH_CODE": {
+      "n": 20,
+      "exact": 0,
+      "json_equal": 0,
+      "differs": 20,
+      "drift": 20,
+      "mismatch": 0,
+      "call_errors": 0,
+      "top_differing_paths": [
+        {
+          "path": "$.content[0].text.log_id",
+          "count": 20
+        },
+        {
+          "path": "$.content[0].text.data.total_count",
+          "count": 11
+        },
+        {
+          "path": "$.content[0].text.data.http_error",
+          "count": 10
+        },
+        {
+          "path": "$.content[0].text.data.incomplete_results",
+          "count": 10
+        },
+        {
+          "path": "$.content[0].text.data.items",
+          "count": 10
+        },
+        {
+          "path": "$.content[0].text.data.message",
+          "count": 10
+        },
+        {
+          "path": "$.content[0].text.data.status_code",
+          "count": 10
+        },
+        {
+          "path": "$.content[0].text.error",
+          "count": 10
+        },
+        {
+          "path": "$.content[0].text.mercury_last_http_status_code",
+          "count": 10
+        },
+        {
+          "path": "$.content[0].text.successful",
+          "count": 10
+        }
+      ]
+    },
+    "GITHUB_SEARCH_ISSUES_AND_PULL_REQUESTS": {
+      "n": 2,
+      "exact": 0,
+      "json_equal": 0,
+      "differs": 2,
+      "drift": 2,
+      "mismatch": 0,
+      "call_errors": 0,
+      "top_differing_paths": [
+        {
+          "path": "$.content[0].text.data.items[0].score",
+          "count": 2
+        },
+        {
+          "path": "$.content[0].text.data.items[1].score",
+          "count": 2
+        },
+        {
+          "path": "$.content[0].text.data.items[2].score",
+          "count": 2
+        },
+        {
+          "path": "$.content[0].text.data.items[3].score",
+          "count": 2
+        },
+        {
+          "path": "$.content[0].text.data.items[4].score",
+          "count": 2
+        },
+        {
+          "path": "$.content[0].text.log_id",
+          "count": 2
+        },
+        {
+          "path": "$.content[0].text.data.items[5].score",
+          "count": 1
+        },
+        {
+          "path": "$.content[0].text.data.items[6].score",
+          "count": 1
+        },
+        {
+          "path": "$.content[0].text.data.items[7].score",
+          "count": 1
+        },
+        {
+          "path": "$.content[0].text.data.items[8].score",
+          "count": 1
+        }
+      ]
+    },
+    "GITHUB_SEARCH_REPOSITORIES": {
+      "n": 0,
+      "exact": 0,
+      "json_equal": 0,
+      "differs": 0,
+      "drift": 0,
+      "mismatch": 0,
+      "call_errors": 0,
+      "top_differing_paths": []
+    },
+    "GITHUB_UPDATE_AN_ISSUE": {
+      "n": 0,
+      "exact": 0,
+      "json_equal": 0,
+      "differs": 0,
+      "drift": 0,
+      "mismatch": 0,
+      "call_errors": 0,
+      "top_differing_paths": []
+    },
+    "COMPOSIO_CHECK_ACTIVE_CONNECTION": {
+      "n": 0,
+      "exact": 0,
+      "json_equal": 0,
+      "differs": 0,
+      "drift": 0,
+      "mismatch": 0,
+      "call_errors": 0,
+      "top_differing_paths": []
+    },
+    "COMPOSIO_GET_REQUIRED_PARAMETERS": {
+      "n": 0,
+      "exact": 0,
+      "json_equal": 0,
+      "differs": 0,
+      "drift": 0,
+      "mismatch": 0,
+      "call_errors": 0,
+      "top_differing_paths": []
+    },
+    "COMPOSIO_INITIATE_CONNECTION": {
+      "n": 0,
+      "exact": 0,
+      "json_equal": 0,
+      "differs": 0,
+      "drift": 0,
+      "mismatch": 0,
+      "call_errors": 0,
+      "top_differing_paths": []
+    }
+  }
+}

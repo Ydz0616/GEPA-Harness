@@ -1,0 +1,3 @@
+[
+    "`RunResult` is defined in `src/agents/result.py` \u2014 confirmed at commit `17d994b`: `src/agents/__init__.py` re-exports it via `from .result import AgentToolInvocation, RunResult, RunResultStreaming`, and code search finds the class declaration at `src/agents/result.py` (the only match in the repo).\n\n```json\n{\"answer\": \"src/agents/result.py\", \"path\": \"src/agents/result.py\"}\n```\n\n(Note: reading `result.py` in full at that commit was blocked by the tool's output-size cap \u2014 81k chars \u2014 so the confirmation comes from the re-export in `src/agents/__init__.py` at the same commit plus repo-wide code search, not from the class body itself.)"
+]

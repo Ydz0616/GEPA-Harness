@@ -1,0 +1,3 @@
+[
+    "Read `src/agents/memory/sqlite_session.py` at commit `17d994bd`. The constructor signature:\n\n```python\ndef __init__(\n    self,\n    session_id: str,\n    db_path: str | Path = \":memory:\",\n    sessions_table: str = \"agent_sessions\",\n    messages_table: str = \"agent_messages\",\n    session_settings: SessionSettings | dict[str, Any] | None = None,\n):\n```\n\nThe docstring agrees: *\"messages_table: Name of the table to store message data. Defaults to 'agent_messages'\"*. (Note the sibling default is `sessions_table = \"agent_sessions\"`, so don't confuse the two.)\n\n```json\n{\"answer\": \"agent_messages\", \"path\": \"src/agents/memory/sqlite_session.py\"}\n```"
+]

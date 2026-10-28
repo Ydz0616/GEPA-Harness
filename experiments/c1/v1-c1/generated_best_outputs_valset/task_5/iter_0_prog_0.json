@@ -1,0 +1,3 @@
+[
+    "Read `src/agents/usage.py` at commit `17d994bd`:\n\n```python\n@dataclass\nclass Usage:\n    requests: int = 0\n    \"\"\"Total requests made to the LLM API.\"\"\"\n```\n\nThe `requests` field is annotated as `int` and defaults to `0` \u2014 so a freshly constructed `Usage()` counts zero requests until `Usage.add()` or a usage report fills it in.\n\n```json\n{\"answer\": \"0\", \"path\": \"src/agents/usage.py\"}\n```"
+]

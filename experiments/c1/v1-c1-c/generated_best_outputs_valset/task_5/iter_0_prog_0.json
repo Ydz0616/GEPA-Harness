@@ -1,0 +1,3 @@
+[
+    "The `Usage` dataclass defaults `requests` to `0` (with the docstring \"Total requests made to the LLM API.\"), declared as `requests: int = 0`.\n\n```json\n{\"answer\": \"0\", \"path\": \"src/agents/usage.py\"}\n```"
+]

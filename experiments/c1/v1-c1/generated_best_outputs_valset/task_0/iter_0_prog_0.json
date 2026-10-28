@@ -1,0 +1,3 @@
+[
+    "Found it at the pinned commit \u2014 `src/agents/run_config.py`, near the top with the other sandbox defaults:\n\n```python\nDEFAULT_MAX_ARCHIVE_INPUT_BYTES = 1024 * 1024 * 1024\n```\n\nThat's **1,073,741,824 bytes (1 GiB)**. It's the default for `SandboxArchiveLimits.max_input_bytes` (overridable to `None` to disable the limit).\n\n```json\n{\"answer\": \"1073741824 bytes (1024 * 1024 * 1024, i.e. 1 GiB)\", \"path\": \"src/agents/run_config.py\"}\n```"
+]

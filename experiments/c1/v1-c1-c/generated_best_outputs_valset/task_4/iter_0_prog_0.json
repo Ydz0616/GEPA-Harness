@@ -1,0 +1,3 @@
+[
+    "Verified at commit `17d994b`: `def set_tracing_disabled(disabled: bool) -> None:` is defined in **`src/agents/tracing/__init__.py`** (it just delegates to `get_trace_provider().set_disabled(disabled)`; the function itself lives in that module's `__init__.py` and is re-exported via `__all__`).\n\n```json\n{\"answer\": \"src/agents/tracing/__init__.py\", \"path\": \"src/agents/tracing/__init__.py\"}\n```"
+]

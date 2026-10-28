@@ -1,0 +1,3 @@
+[
+    "Read `src/agents/run_config.py` at commit `17d994bd`. The attribute isn't a direct field of `RunConfig` \u2014 it lives on `ToolExecutionConfig`, which `RunConfig.tool_execution` carries (default `None`):\n\n```python\n@dataclass\nclass ToolExecutionConfig:\n    max_function_tool_concurrency: int | None = None\n```\n\nDefault is `None` \u2014 meaning no SDK-side cap, so every local function tool call emitted in a turn is started (provider-side `ModelSettings.parallel_tool_calls` is unaffected). Any value < 1 raises `ValueError`.\n\n```json\n{\"answer\": \"None\", \"path\": \"src/agents/run_config.py\"}\n```"
+]

@@ -1,0 +1,396 @@
+{
+  "repo": "openai/openai-agents-python",
+  "window": [
+    "2026-09-14",
+    "2026-09-21"
+  ],
+  "issues_opened": [
+    {
+      "number": 5002,
+      "labels": [],
+      "title": "ModelSettings.extra_args with a provider-native value aborts every Chat Completions model call with PydanticSerializationError"
+    },
+    {
+      "number": 5005,
+      "labels": [],
+      "title": "EncryptedSession.pop_item drains recoverable ciphertext when configured with the wrong key"
+    },
+    {
+      "number": 5006,
+      "labels": [
+        "feature:core"
+      ],
+      "title": "RunState stringifies structured guardrail diagnostics and agent output during persistence"
+    },
+    {
+      "number": 5008,
+      "labels": [],
+      "title": "Tracing exporter honours OPENAI_API_KEY/ORG/PROJECT from the environment but not the endpoint, so OPENAI_BASE_URL does not redirect traces"
+    },
+    {
+      "number": 5010,
+      "labels": [],
+      "title": "OpenAIResponsesCompactionSession compacts only the SessionSettings.limit window and deletes the rest of the stored history"
+    },
+    {
+      "number": 5014,
+      "labels": [],
+      "title": "Issue draft (not filed): RunState stringifies structured `ToolCallOutputItem.custom_data` during persistence"
+    },
+    {
+      "number": 5023,
+      "labels": [
+        "feature:tracing"
+      ],
+      "title": "BackendSpanExporter drops the whole batch on HTTP 429 instead of retrying with Retry-After"
+    },
+    {
+      "number": 5024,
+      "labels": [],
+      "title": "needs_approval misconfiguration raises in the core runner and silently skips approval in realtime sessions"
+    },
+    {
+      "number": 5025,
+      "labels": [
+        "enhancement"
+      ],
+      "title": "Support skills for Agent and not just for SandboxAgent"
+    },
+    {
+      "number": 5026,
+      "labels": [
+        "feature:sandboxes"
+      ],
+      "title": "Skills frontmatter parser mangles multi-line descriptions (folded >, literal |, wrapped lines) in the skill index"
+    },
+    {
+      "number": 5041,
+      "labels": [],
+      "title": "Chat Completions streaming: a reasoning item that arrives after the first text/tool chunk reuses output_index 0 and desynchronizes announced indexes from response.completed.output"
+    },
+    {
+      "number": 5053,
+      "labels": [],
+      "title": "function_schema treats a keyword-only RunContextWrapper first parameter as context, so every call to that tool raises a TypeError that is swallowed into the tool result"
+    },
+    {
+      "number": 5054,
+      "labels": [
+        "feature:mcp",
+        "needs-more-info"
+      ],
+      "title": "Cancelling a MCP server work task does not stop the worker"
+    },
+    {
+      "number": 5068,
+      "labels": [
+        "feature:realtime"
+      ],
+      "title": "Realtime: close() keeps the previous connection's item and audio state, so a reconnect on the same model truncates and retrieves stale item ids"
+    },
+    {
+      "number": 5070,
+      "labels": [
+        "feature:realtime"
+      ],
+      "title": "Realtime: a failing model.close() leaves every waiting event iterator blocked forever"
+    },
+    {
+      "number": 5072,
+      "labels": [
+        "feature:realtime"
+      ],
+      "title": "Realtime: agent_end names the post-handoff agent instead of the agent whose turn ended"
+    },
+    {
+      "number": 5074,
+      "labels": [
+        "feature:voice"
+      ],
+      "title": "Voice: on Python 3.10 a streamed STT session-setup timeout escapes as asyncio.TimeoutError instead of STTWebsocketConnectionError"
+    },
+    {
+      "number": 5082,
+      "labels": [],
+      "title": "Example: AffixIO as a host-side tool guardrail"
+    },
+    {
+      "number": 5085,
+      "labels": [
+        "feature:core",
+        "needs-more-info",
+        "wontfix"
+      ],
+      "title": "Agent.as_tool() nested subagent runs never hit prompt cache, even with byte-identical instructions/tools/prompt_cache_key"
+    },
+    {
+      "number": 5086,
+      "labels": [],
+      "title": "Local shell executor failure aborts the whole run instead of reaching the model"
+    },
+    {
+      "number": 5088,
+      "labels": [
+        "enhancement",
+        "feature:extensions",
+        "feature:sandboxes"
+      ],
+      "title": "Modal sandbox: evaluate native filesystem APIs and clarify overwrite compatibility"
+    },
+    {
+      "number": 5089,
+      "labels": [],
+      "title": "Feature: memory portability across handoffs \u2014 verified memory bundles for agents and sessions"
+    },
+    {
+      "number": 5092,
+      "labels": [],
+      "title": "Generated translated docs (ja/ko/zh) contain ~30 broken relative links (translate_docs.py copies English link targets verbatim)"
+    }
+  ],
+  "prs_merged": [
+    {
+      "number": 4961,
+      "author": "tiagovilasboas",
+      "title": "fix(sessions): do not forward session limit as Conversations page size"
+    },
+    {
+      "number": 4980,
+      "author": "jiangLLM",
+      "title": "fix: preserve exact IDs in AdvancedSQLiteSession.delete_branch"
+    },
+    {
+      "number": 5003,
+      "author": "kaluli123123",
+      "title": "fix(core): serialize only traced fields in ModelSettings.to_traceable_dict"
+    },
+    {
+      "number": 5016,
+      "author": "rksharma-owg",
+      "title": "fix(core): preserve structured guardrail diagnostics and agent output during persistence"
+    },
+    {
+      "number": 5017,
+      "author": "hyeonsang010716",
+      "title": "fix(tracing): do not cache a missing OPENAI_API_KEY"
+    },
+    {
+      "number": 5019,
+      "author": "00200200",
+      "title": "docs: fix session guide subject-verb agreement"
+    },
+    {
+      "number": 5020,
+      "author": "00200200",
+      "title": "docs: fix spelling in spending glossary"
+    },
+    {
+      "number": 5044,
+      "author": "olzhik11",
+      "title": "docs: add Laminar to external tracing processors list"
+    },
+    {
+      "number": 5049,
+      "author": "Jinzhengxu",
+      "title": "fix(tests): restore any_llm_model in sys.modules after stubbed imports"
+    },
+    {
+      "number": 5052,
+      "author": "jaideeppyne",
+      "title": "fix(tracing): retry rate-limited trace exports (Fixes #5023)"
+    },
+    {
+      "number": 5058,
+      "author": "jbeckwith-oai",
+      "title": "Add SDKs team as repository code owner"
+    },
+    {
+      "number": 5060,
+      "author": "WenJing95",
+      "title": "fix(extensions): close owned event streams when runs fail"
+    },
+    {
+      "number": 5064,
+      "author": "seratch",
+      "title": "docs: clarify Unix-local execution boundaries"
+    },
+    {
+      "number": 5065,
+      "author": "seratch",
+      "title": "docs: update translated pages"
+    },
+    {
+      "number": 5066,
+      "author": "seratch",
+      "title": "fix: align conditional approvals with validated tool arguments"
+    },
+    {
+      "number": 5075,
+      "author": "kosesena",
+      "title": "fix(voice): raise the builtin TimeoutError from _wait_for_event on 3.10"
+    },
+    {
+      "number": 5077,
+      "author": "seratch",
+      "title": "release: 0.22.3"
+    },
+    {
+      "number": 5079,
+      "author": "simpleqt",
+      "title": "docs(examples): drop the duplicated word in the Temporal trace name"
+    },
+    {
+      "number": 5081,
+      "author": "L4XB",
+      "title": "fix(extensions): keep the current branch when a forced delete_branch fails"
+    },
+    {
+      "number": 5098,
+      "author": "seratch",
+      "title": "fix(sandbox): preserve multiline skill frontmatter descriptions"
+    },
+    {
+      "number": 5099,
+      "author": "seratch",
+      "title": "fix(sandbox): validate host grants against normalized workspace roots"
+    },
+    {
+      "number": 5100,
+      "author": "seratch",
+      "title": "fix(sandbox): reject host sources in dictionary sandbox manifests"
+    },
+    {
+      "number": 5101,
+      "author": "seratch",
+      "title": "docs: clarify handoff history privacy boundaries"
+    },
+    {
+      "number": 5102,
+      "author": "seratch",
+      "title": "fix(realtime): bound incoming WebSocket message size by default"
+    },
+    {
+      "number": 5104,
+      "author": "seratch",
+      "title": "fix(extensions): validate MongoDB session identifiers"
+    },
+    {
+      "number": 5105,
+      "author": "seratch",
+      "title": "docs: demonstrate server-owned tool approval state"
+    },
+    {
+      "number": 5106,
+      "author": "seratch",
+      "title": "fix(core): bound agent tool streaming callback backlogs"
+    },
+    {
+      "number": 5107,
+      "author": "seratch",
+      "title": "fix(examples): require interactive approval for host shell commands"
+    },
+    {
+      "number": 5108,
+      "author": "seratch",
+      "title": "fix(tracing): omit reasoning from default trace exports"
+    },
+    {
+      "number": 5109,
+      "author": "seratch",
+      "title": "docs: demonstrate fail-closed trace redaction"
+    },
+    {
+      "number": 5110,
+      "author": "seratch",
+      "title": "docs: authenticate Twilio streams and clean up sessions"
+    },
+    {
+      "number": 5111,
+      "author": "seratch",
+      "title": "fix(examples): restrict the Realtime demo to local bounded sessions"
+    },
+    {
+      "number": 5112,
+      "author": "seratch",
+      "title": "fix(tools): redact default tool failure details"
+    },
+    {
+      "number": 5114,
+      "author": "seratch",
+      "title": "fix(voice): stop forcing the STT session logging header"
+    },
+    {
+      "number": 5115,
+      "author": "seratch",
+      "title": "fix(core): preserve guarded final outputs in agent tools"
+    },
+    {
+      "number": 5117,
+      "author": "seratch",
+      "title": "fix(sandbox): reject privileged storage with read-only host grants"
+    }
+  ],
+  "issue_numbers": [
+    5002,
+    5005,
+    5006,
+    5008,
+    5010,
+    5014,
+    5023,
+    5024,
+    5025,
+    5026,
+    5041,
+    5053,
+    5054,
+    5068,
+    5070,
+    5072,
+    5074,
+    5082,
+    5085,
+    5086,
+    5088,
+    5089,
+    5092
+  ],
+  "pr_numbers": [
+    4961,
+    4980,
+    5003,
+    5016,
+    5017,
+    5019,
+    5020,
+    5044,
+    5049,
+    5052,
+    5058,
+    5060,
+    5064,
+    5065,
+    5066,
+    5075,
+    5077,
+    5079,
+    5081,
+    5098,
+    5099,
+    5100,
+    5101,
+    5102,
+    5104,
+    5105,
+    5106,
+    5107,
+    5108,
+    5109,
+    5110,
+    5111,
+    5112,
+    5114,
+    5115,
+    5117
+  ]
+}

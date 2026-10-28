@@ -1,0 +1,4 @@
+{"ts": "2026-10-21T17:47:26.898795+00:00", "model": "deepseek-flash", "latency_s": 21.2, "prompt_tokens": 8668, "completion_tokens": 4096, "cost_usd": 0.0037578, "prompt_chars": 33476, "output": ""}
+{"ts": "2026-10-21T17:52:30.362954+00:00", "model": "deepseek-flash", "latency_s": 21.3, "prompt_tokens": 10496, "completion_tokens": 4096, "cost_usd": 0.004032, "prompt_chars": 42548, "output": ""}
+{"ts": "2026-10-21T18:08:11.001524+00:00", "model": "deepseek-flash", "latency_s": 21.4, "prompt_tokens": 11771, "completion_tokens": 4096, "cost_usd": 0.00422325, "prompt_chars": 50447, "output": ""}
+{"ts": "2026-10-21T18:12:46.039921+00:00", "model": "deepseek-flash", "latency_s": 18.8, "prompt_tokens": 10440, "completion_tokens": 4096, "cost_usd": 0.0040236, "prompt_chars": 40914, "output": ""}

@@ -1,0 +1,51 @@
+# Two containers for the Improve-with-Ola / GEPA experiment:
+#   pgvector : Postgres 16 + pgvector, host port 5433 (user/pw hl/hl), DB hl_improve
+#   hl       : Hidden Layer instance built from the experiment branch, API on :8080
+#
+# HL_REPO must point at a checkout of SeekMi-Technologies/Hidden_Layer_Internal on branch
+# devin/1792547019-improve-s1-mem0-versions (commit 90d8855a or later).
+#
+#   cp env/experiment.env.example env/experiment.env   # fill in keys
+#   HL_REPO=../Hidden-Layer-Internal docker compose -f env/docker-compose.yml up -d --build
+services:
+  pgvector:
+    image: pgvector/pgvector:pg16
+    container_name: gh_pgvector
+    environment:
+      POSTGRES_USER: hl
+      POSTGRES_PASSWORD: hl
+      POSTGRES_DB: hl_improve
+    ports:
+      - "5433:5432"
+    volumes:
+      - gh_pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U hl -d hl_improve"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+
+  hl:
+    build:
+      context: ${HL_REPO:-../../Hidden-Layer-Internal}
+    image: hidden-layer-improve
+    container_name: gh_hl
+    depends_on:
+      pgvector:
+        condition: service_healthy
+    env_file: experiment.env
+    environment:
+      HL_PG_HOST: pgvector
+      HL_PG_PORT: "5432"
+      HL_PG_DBNAME: hl_improve
+      HL_TENANT_ID: devinlive
+      HL_MEMORY_BACKEND: "off"
+      HL_PUBLIC_URL: "http://localhost:8080"
+      HL_MCP_RESULT_MAX_CHARS: "400000"
+    entrypoint: ["sh", "-c", "hl db-upgrade && exec hl run"]
+    ports:
+      - "8080:8080"
+    restart: unless-stopped
+
+volumes:
+  gh_pgdata:

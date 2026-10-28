@@ -1,0 +1,63 @@
+{
+  "best_version_id": "3120b6f2f46c",
+  "best_score_val": 0.9560000000000001,
+  "candidates": [
+    {
+      "version_id": "001a42091bad",
+      "val_score": 0.8966666666666667,
+      "parents": [
+        null
+      ]
+    },
+    {
+      "version_id": "5605704e4879",
+      "val_score": 0.9359999999999999,
+      "parents": [
+        0
+      ]
+    },
+    {
+      "version_id": "3120b6f2f46c",
+      "val_score": 0.9560000000000001,
+      "parents": [
+        1
+      ]
+    },
+    {
+      "version_id": "bcfe503b0b1a",
+      "val_score": 0.9480000000000001,
+      "parents": [
+        2
+      ]
+    },
+    {
+      "version_id": "b2987d5883ec",
+      "val_score": 0.914,
+      "parents": [
+        1
+      ]
+    },
+    {
+      "version_id": "2efa85c19843",
+      "val_score": 0.27999999999999997,
+      "parents": [
+        1
+      ]
+    }
+  ],
+  "val_ids": [
+    "qa-dwave-cloud-client-01",
+    "qa-dwave-cloud-client-04",
+    "qa-dwave-cloud-client-07",
+    "qa-dwave-cloud-client-09",
+    "qa-dwave-cloud-client-10",
+    "qa-sanic-04",
+    "qa-sanic-06",
+    "qa-sanic-07",
+    "qa-sanic-08",
+    "qa-sanic-09"
+  ],
+  "seed_examples_reused": 0,
+  "reflection_calls": 4,
+  "reflection_cost_usd": 0.02934831
+}

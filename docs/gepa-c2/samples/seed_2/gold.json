@@ -1,0 +1,43 @@
+{
+  "mismatches": [
+    {
+      "expense_id": "EXP-002-003",
+      "kind": "missing_in_report"
+    },
+    {
+      "expense_id": "EXP-002-017",
+      "kind": "amount_diff"
+    },
+    {
+      "expense_id": "EXP-002-026",
+      "kind": "missing_in_ledger"
+    },
+    {
+      "expense_id": "EXP-002-010",
+      "kind": "category_diff"
+    },
+    {
+      "expense_id": "EXP-002-031",
+      "kind": "missing_in_report"
+    },
+    {
+      "expense_id": "EXP-002-015",
+      "kind": "missing_in_ledger"
+    },
+    {
+      "expense_id": "EXP-002-006",
+      "kind": "missing_in_report"
+    }
+  ],
+  "report_total": 17803.63,
+  "ledger_total": 18397.71,
+  "mismatch_ids": [
+    "EXP-002-003",
+    "EXP-002-006",
+    "EXP-002-010",
+    "EXP-002-015",
+    "EXP-002-017",
+    "EXP-002-026",
+    "EXP-002-031"
+  ]
+}

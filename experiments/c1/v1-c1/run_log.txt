@@ -1,0 +1,95 @@
+Iteration 0: Base program full valset score: 0.8333333333333334 over 6 / 6 examples
+Iteration 1: Selected program 0 score: 0.8333333333333334
+Batched reflection failed ('HLAdapter' object has no attribute 'propose_new_texts'); retrying per task.
+Traceback (most recent call last):
+  File "/home/ubuntu/repos/gepa/src/gepa/proposer/reflective_mutation/reflective_mutation.py", line 262, in _propose_texts_batch_safe
+    return list(self._propose_texts_batch(jobs, mds))
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/repos/gepa/src/gepa/proposer/reflective_mutation/reflective_mutation.py", line 213, in _propose_texts_batch
+    self.adapter.propose_new_texts is not None
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'HLAdapter' object has no attribute 'propose_new_texts'
+
+Per-task reflection failed: 'HLAdapter' object has no attribute 'propose_new_texts'
+Iteration 1: Reflective mutation did not propose a new candidate
+Iteration 2: Selected program 0 score: 0.8333333333333334
+Iteration 2: All subsample scores perfect for parent 0. Skipping.
+Iteration 2: Reflective mutation did not propose a new candidate
+Iteration 3: Selected program 0 score: 0.8333333333333334
+Batched reflection failed ('HLAdapter' object has no attribute 'propose_new_texts'); retrying per task.
+Traceback (most recent call last):
+  File "/home/ubuntu/repos/gepa/src/gepa/proposer/reflective_mutation/reflective_mutation.py", line 262, in _propose_texts_batch_safe
+    return list(self._propose_texts_batch(jobs, mds))
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/repos/gepa/src/gepa/proposer/reflective_mutation/reflective_mutation.py", line 213, in _propose_texts_batch
+    self.adapter.propose_new_texts is not None
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'HLAdapter' object has no attribute 'propose_new_texts'
+
+Per-task reflection failed: 'HLAdapter' object has no attribute 'propose_new_texts'
+Iteration 3: Reflective mutation did not propose a new candidate
+Iteration 4: Selected program 0 score: 0.8333333333333334
+Batched reflection failed ('HLAdapter' object has no attribute 'propose_new_texts'); retrying per task.
+Traceback (most recent call last):
+  File "/home/ubuntu/repos/gepa/src/gepa/proposer/reflective_mutation/reflective_mutation.py", line 262, in _propose_texts_batch_safe
+    return list(self._propose_texts_batch(jobs, mds))
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/repos/gepa/src/gepa/proposer/reflective_mutation/reflective_mutation.py", line 213, in _propose_texts_batch
+    self.adapter.propose_new_texts is not None
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'HLAdapter' object has no attribute 'propose_new_texts'
+
+Per-task reflection failed: 'HLAdapter' object has no attribute 'propose_new_texts'
+Iteration 4: Reflective mutation did not propose a new candidate
+Iteration 5: Selected program 0 score: 0.8333333333333334
+Batched reflection failed ('HLAdapter' object has no attribute 'propose_new_texts'); retrying per task.
+Traceback (most recent call last):
+  File "/home/ubuntu/repos/gepa/src/gepa/proposer/reflective_mutation/reflective_mutation.py", line 262, in _propose_texts_batch_safe
+    return list(self._propose_texts_batch(jobs, mds))
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/repos/gepa/src/gepa/proposer/reflective_mutation/reflective_mutation.py", line 213, in _propose_texts_batch
+    self.adapter.propose_new_texts is not None
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'HLAdapter' object has no attribute 'propose_new_texts'
+
+Per-task reflection failed: 'HLAdapter' object has no attribute 'propose_new_texts'
+Iteration 5: Reflective mutation did not propose a new candidate
+Iteration 6: Selected program 0 score: 0.8333333333333334
+Batched reflection failed ('HLAdapter' object has no attribute 'propose_new_texts'); retrying per task.
+Traceback (most recent call last):
+  File "/home/ubuntu/repos/gepa/src/gepa/proposer/reflective_mutation/reflective_mutation.py", line 262, in _propose_texts_batch_safe
+    return list(self._propose_texts_batch(jobs, mds))
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/repos/gepa/src/gepa/proposer/reflective_mutation/reflective_mutation.py", line 213, in _propose_texts_batch
+    self.adapter.propose_new_texts is not None
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'HLAdapter' object has no attribute 'propose_new_texts'
+
+Per-task reflection failed: 'HLAdapter' object has no attribute 'propose_new_texts'
+Iteration 6: Reflective mutation did not propose a new candidate
+Iteration 7: Selected program 0 score: 0.8333333333333334
+Batched reflection failed ('HLAdapter' object has no attribute 'propose_new_texts'); retrying per task.
+Traceback (most recent call last):
+  File "/home/ubuntu/repos/gepa/src/gepa/proposer/reflective_mutation/reflective_mutation.py", line 262, in _propose_texts_batch_safe
+    return list(self._propose_texts_batch(jobs, mds))
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/repos/gepa/src/gepa/proposer/reflective_mutation/reflective_mutation.py", line 213, in _propose_texts_batch
+    self.adapter.propose_new_texts is not None
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'HLAdapter' object has no attribute 'propose_new_texts'
+
+Per-task reflection failed: 'HLAdapter' object has no attribute 'propose_new_texts'
+Iteration 7: Reflective mutation did not propose a new candidate
+Iteration 8: Selected program 0 score: 0.8333333333333334
+Batched reflection failed ('HLAdapter' object has no attribute 'propose_new_texts'); retrying per task.
+Traceback (most recent call last):
+  File "/home/ubuntu/repos/gepa/src/gepa/proposer/reflective_mutation/reflective_mutation.py", line 262, in _propose_texts_batch_safe
+    return list(self._propose_texts_batch(jobs, mds))
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/repos/gepa/src/gepa/proposer/reflective_mutation/reflective_mutation.py", line 213, in _propose_texts_batch
+    self.adapter.propose_new_texts is not None
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'HLAdapter' object has no attribute 'propose_new_texts'
+
+Per-task reflection failed: 'HLAdapter' object has no attribute 'propose_new_texts'
+Iteration 8: Reflective mutation did not propose a new candidate
